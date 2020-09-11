@@ -25,7 +25,7 @@
   <meta name="description" content="紀錄前端相關內容">
 <meta property="og:type" content="website">
 <meta property="og:title" content="前端文章筆記">
-<meta property="og:url" content="https://ruienyuski.github.io/blog/index.html">
+<meta property="og:url" content="https://ruienyuski.github.io/blog/categories/JavaScript/index.html">
 <meta property="og:site_name" content="前端文章筆記">
 <meta property="og:description" content="紀錄前端相關內容">
 <meta property="og:locale" content="zh_TW">
@@ -34,20 +34,20 @@
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://ruienyuski.github.io/blog/">
+<link rel="canonical" href="https://ruienyuski.github.io/blog/categories/JavaScript/">
 
 
 <script class="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome : true,
+    isHome : false,
     isPost : false,
     lang   : 'zh-TW'
   };
 </script>
 
-  <title>前端文章筆記</title>
+  <title>分類: JavaScript | 前端文章筆記</title>
   
 
 
@@ -222,88 +222,52 @@
 </noscript>
 
 
-    <div class="main-inner index posts-expand">
+    <div class="main-inner category posts-collapse">
       
 
       
-      
+
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="https://ruienyuski.github.io/blog/2020/09/11/input_value/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/blog/images/avatar.gif">
-      <meta itemprop="name" content="yuski">
-      <meta itemprop="description" content="紀錄前端相關內容">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="前端文章筆記">
-    </span>
-
-    
-    
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/blog/2020/09/11/input_value/" class="post-title-link" itemprop="url">input.value 取值狀況</a>
+  
+  <div class="post-block">
+    <div class="post-content">
+      <div class="collection-title">
+        <h2 class="collection-header">JavaScript
+          <small>分類</small>
         </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">發表於</span>
-      
-
-      <time title="創建時間：2020-09-11 16:28:32 / 修改時間：17:40:07" itemprop="dateCreated datePublished" datetime="2020-09-11T16:28:32+08:00">2020-09-11</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分類於</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/blog/categories/JavaScript/" itemprop="url" rel="index"><span itemprop="name">JavaScript</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="全域與區域設定-input-value-差異"><a href="#全域與區域設定-input-value-差異" class="headerlink" title="全域與區域設定 input value 差異"></a>全域與區域設定 input value 差異</h2><p>全域設定 <code>input.value</code> 時，如果 <code>HTML</code> 沒有設 <code>value</code> 網頁載入時候會是空值<br>可參考這個<a target="_blank" rel="noopener" href="https://codepen.io/HexSchool_yuko/pen/QXXPvm">範例</a></p>
-<h2 id="清空-input-value"><a href="#清空-input-value" class="headerlink" title="清空 input.value"></a>清空 input.value</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">addTodo</span></span>() &#123;</span><br><span class="line">var txt = document.querySelector(<span class="string">&#x27;.text&#x27;</span>).value;</span><br><span class="line">txt = <span class="string">&#x27;&#x27;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>因為 <code>txt</code> 是儲存 <code>input</code> 元素的值<br>換句話說是新增記憶體 ( 變數 <code>txt</code>) 來存放 <code>document.querySelector(&#39;.text&#39;).value</code><br>並非取得當下的 <code>input</code> 元素的值<br>所以會建議直接使用 <code>txt.value</code><br>因此改為 <code>var txt = document.querySelector(&#39;.text&#39;);</code><br>並用 <code>txt.value</code> 就能清空當下的 <code>input.value</code></p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">addTodo</span></span>() &#123;</span><br><span class="line">var txt = document.querySelector(<span class="string">&#x27;.text&#x27;</span>);</span><br><span class="line">txt.value = <span class="string">&#x27;&#x27;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="限制-input-輸入長度"><a href="#限制-input-輸入長度" class="headerlink" title="限制 input 輸入長度"></a>限制 input 輸入長度</h2><p>限制字數可使用 <code>maxlength</code> 若 <code>type=&quot;number&quot;</code> 是無法使用這個語法，需改為 <code>type=&quot;tel&quot;</code><br>可參考這篇<a target="_blank" rel="noopener" href="https://www.itread01.com/articles/1498672640.html">文章</a></p>
+      </div>
 
       
+    <div class="collection-year">
+      <span class="collection-header">2020</span>
     </div>
 
-    
-    
-    
+  <article itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+      <div class="post-meta-container">
+        <time itemprop="dateCreated"
+              datetime="2020-09-11T16:28:32+08:00"
+              content="2020-09-11">
+          09-11
+        </time>
+      </div>
 
-    <footer class="post-footer">
-        <div class="post-eof"></div>
+      <div class="post-title">
+          <a class="post-title-link" href="/blog/2020/09/11/input_value/" itemprop="url">
+            <span itemprop="name">input.value 取值狀況</span>
+          </a>
+      </div>
+
       
-    </footer>
+    </header>
   </article>
-  
-  
-  
 
+    </div>
+  </div>
+  
+  
+  
 
   
 
