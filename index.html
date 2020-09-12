@@ -182,20 +182,20 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/blog/archives">
-          <span class="site-state-item-count">2</span>
+          <span class="site-state-item-count">3</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/blog/categories/">
           
-        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-count">2</span>
         <span class="site-state-item-name">分類</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/blog/tags/">
           
-        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-count">3</span>
         <span class="site-state-item-name">標籤</span></a>
       </div>
   </nav>
@@ -230,6 +230,86 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://ruienyuski.github.io/blog/2020/09/12/hexo-%E4%B8%8A%E5%82%B3%E5%9C%96%E7%89%87%E8%A7%A3%E6%B1%BA%E6%96%B9%E5%BC%8F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
+      <meta itemprop="name" content="yuski">
+      <meta itemprop="description" content="紀錄前端相關內容">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="前端文章筆記">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/blog/2020/09/12/hexo-%E4%B8%8A%E5%82%B3%E5%9C%96%E7%89%87%E8%A7%A3%E6%B1%BA%E6%96%B9%E5%BC%8F/" class="post-title-link" itemprop="url">hexo 上傳圖片解決方式</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">發表於</span>
+      
+
+      <time title="創建時間：2020-09-12 17:12:00 / 修改時間：17:39:46" itemprop="dateCreated datePublished" datetime="2020-09-12T17:12:00+08:00">2020-09-12</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分類於</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/blog/categories/hexo/" itemprop="url" rel="index"><span itemprop="name">hexo</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>這邊紀錄 hexo 需要附上圖片的處理方式</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/blog/2020/09/12/hexo-%E4%B8%8A%E5%82%B3%E5%9C%96%E7%89%87%E8%A7%A3%E6%B1%BA%E6%96%B9%E5%BC%8F/#more" rel="contents">
+                閱讀全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
     <link itemprop="mainEntityOfPage" href="https://ruienyuski.github.io/blog/2020/09/12/innerhtml/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -259,7 +339,7 @@
       <span class="post-meta-item-text">發表於</span>
       
 
-      <time title="創建時間：2020-09-12 15:51:09 / 修改時間：17:07:30" itemprop="dateCreated datePublished" datetime="2020-09-12T15:51:09+08:00">2020-09-12</time>
+      <time title="創建時間：2020-09-12 15:51:09 / 修改時間：17:40:58" itemprop="dateCreated datePublished" datetime="2020-09-12T15:51:09+08:00">2020-09-12</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -281,18 +361,15 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h2 id="innerHTML-組字串的引號問題"><a href="#innerHTML-組字串的引號問題" class="headerlink" title="innerHTML 組字串的引號問題"></a>innerHTML 組字串的引號問題</h2><p>如果外層是單引號，裡層包起來就要是雙引號，因為如果同樣是單引號，他不知道結束點在哪，會以為是在圈選處結束，如下圖，而出現紅色底線<br><img src="https://ruienyuski.github.io/photo/hexo_img/20200912_innerhtml/innerhtml-1.png"></p>
-<p>更改如下<br><img src="https://ruienyuski.github.io/photo/hexo_img/20200912_innerhtml/innerhtml-2.png"></p>
-<p>innerHTML 可以累加<br><img src="https://ruienyuski.github.io/photo/hexo_img/20200912_innerhtml/innerhtml-3.png"></p>
-<p>結果如下，會出現兩次<br><img src="https://ruienyuski.github.io/photo/hexo_img/20200912_innerhtml/innerhtml-4.png"></p>
-<h2 id="innerHTML-與-for-運用"><a href="#innerHTML-與-for-運用" class="headerlink" title="innerHTML 與 for 運用"></a>innerHTML 與 for 運用</h2><p><code>list.innerHTML</code> 的位置是否可以放在 <code>for 迴圈</code>裡面呢？</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> updateList(e)&#123;</span><br><span class="line">    var selected=e.target.value;</span><br><span class="line">    var str=<span class="string">&quot;&quot;</span>;</span><br><span class="line">    <span class="keyword">for</span>(var i=0;i&lt;country.length;i++)&#123;</span><br><span class="line">         <span class="keyword">if</span>(selected===country[i].place)&#123;</span><br><span class="line">             str+=<span class="string">&quot;&lt;li&gt;農夫名字是：&quot;</span>+country[i].farmer+<span class="string">&quot;&lt;/li&gt;&quot;</span>;</span><br><span class="line">             list.innerHTML=str;</span><br><span class="line">         &#125;;</span><br><span class="line">     &#125;;</span><br><span class="line"> &#125;;</span><br></pre></td></tr></table></figure>
-<p>邏輯上雖是可行，但是程式執行時，會屢次向網頁進行渲染，也就是不斷的重複寫入<br>所以比較好的方式是在放在 <code>for 迴圈</code>後面 (如下) ，當字串累加後，後面再執行 <code>innerHTML</code></p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> updateList(e)&#123;</span><br><span class="line">    var selected=e.target.value;</span><br><span class="line">    var str=<span class="string">&quot;&quot;</span>;</span><br><span class="line">    <span class="keyword">for</span>(var i=0;i&lt;country.length;i++)&#123;</span><br><span class="line">         <span class="keyword">if</span>(selected===country[i].place)&#123;</span><br><span class="line">             str+=<span class="string">&quot;&lt;li&gt;農夫名字是：&quot;</span>+country[i].farmer+<span class="string">&quot;&lt;/li&gt;&quot;</span>;</span><br><span class="line">         &#125;;</span><br><span class="line">     &#125;;</span><br><span class="line">    list.innerHTML=str;</span><br><span class="line"> &#125;;</span><br></pre></td></tr></table></figure>
-<h2 id="說明用法"><a href="#說明用法" class="headerlink" title="+= 說明用法"></a>+= 說明用法</h2><p>當在寫 <code>var str=&#39;hi&#39;</code> 時，裡面就被賦予字串，<br>而若有內容需要加上去，又不能影響原本的字串，<br>那就可以用</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">str( 原變數 ) = ( 重新賦予值 )  str( 原變數內容 )+ <span class="string">&#x27;Sue&#x27;</span> 字串</span><br><span class="line">str = str +  <span class="string">&#x27;Sue&#x27;</span> </span><br></pre></td></tr></table></figure>
-<p>而 <code>str+=&#39;Sue&#39;</code>，就是一種縮寫方式，此種等同於 <code>str = str+ &#39;Sue&#39;</code><br>如果不習慣這樣的縮寫，可直接用 <code>str = str + &#39;Sue&#39;</code> 這種寫法</p>
-
+          <p>innerHTML 在處理迴圈或是字串會遇到常見的問題，如下文所示：</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/blog/2020/09/12/innerhtml/#more" rel="contents">
+                閱讀全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -340,10 +417,16 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">發表於</span>
-      
 
-      <time title="創建時間：2020-09-11 16:28:32 / 修改時間：17:40:07" itemprop="dateCreated datePublished" datetime="2020-09-11T16:28:32+08:00">2020-09-11</time>
+      <time title="創建時間：2020-09-11 16:28:32" itemprop="dateCreated datePublished" datetime="2020-09-11T16:28:32+08:00">2020-09-11</time>
     </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新於</span>
+        <time title="修改時間：2020-09-12 17:43:03" itemprop="dateModified" datetime="2020-09-12T17:43:03+08:00">2020-09-12</time>
+      </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
@@ -364,13 +447,15 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h2 id="全域與區域設定-input-value-差異"><a href="#全域與區域設定-input-value-差異" class="headerlink" title="全域與區域設定 input value 差異"></a>全域與區域設定 input value 差異</h2><p>全域設定 <code>input.value</code> 時，如果 <code>HTML</code> 沒有設 <code>value</code> 網頁載入時候會是空值<br>可參考這個<a target="_blank" rel="noopener" href="https://codepen.io/HexSchool_yuko/pen/QXXPvm">範例</a></p>
-<h2 id="清空-input-value"><a href="#清空-input-value" class="headerlink" title="清空 input.value"></a>清空 input.value</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">addTodo</span></span>() &#123;</span><br><span class="line">var txt = document.querySelector(<span class="string">&#x27;.text&#x27;</span>).value;</span><br><span class="line">txt = <span class="string">&#x27;&#x27;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>因為 <code>txt</code> 是儲存 <code>input</code> 元素的值<br>換句話說是新增記憶體 ( 變數 <code>txt</code>) 來存放 <code>document.querySelector(&#39;.text&#39;).value</code><br>並非取得當下的 <code>input</code> 元素的值<br>所以會建議直接使用 <code>txt.value</code><br>因此改為 <code>var txt = document.querySelector(&#39;.text&#39;);</code><br>並用 <code>txt.value</code> 就能清空當下的 <code>input.value</code></p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">addTodo</span></span>() &#123;</span><br><span class="line">var txt = document.querySelector(<span class="string">&#x27;.text&#x27;</span>);</span><br><span class="line">txt.value = <span class="string">&#x27;&#x27;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="限制-input-輸入長度"><a href="#限制-input-輸入長度" class="headerlink" title="限制 input 輸入長度"></a>限制 input 輸入長度</h2><p>限制字數可使用 <code>maxlength</code> 若 <code>type=&quot;number&quot;</code> 是無法使用這個語法，需改為 <code>type=&quot;tel&quot;</code><br>可參考這篇<a target="_blank" rel="noopener" href="https://www.itread01.com/articles/1498672640.html">文章</a></p>
-
+          <p>input value 會有取值的狀況，如下文所示：</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/blog/2020/09/11/input_value/#more" rel="contents">
+                閱讀全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
