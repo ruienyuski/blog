@@ -22,24 +22,24 @@
     var CONFIG = {"hostname":"ruienyuski.github.io","root":"/blog/","scheme":"Pisces","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜尋...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}};
   </script>
 
-  <meta name="description" content="innerHTML 組字串的引號問題如果外層是單引號，裡層包起來就要是雙引號，因為如果同樣是單引號，他不知道結束點在哪，會以為是在圈選處結束，如下圖，而出現紅色底線   更改如下   innerHTML 可以累加   結果如下，會出現兩次   innerHTML 與 for 運用list.innerHTML 的位置是否可以放在 for 迴圈裡面呢？ 12345678910function upda">
+  <meta name="description" content="innerHTML 組字串的引號問題如果外層是單引號，裡層包起來就要是雙引號，因為如果同樣是單引號，他不知道結束點在哪，會以為是在圈選處結束，如下圖，而出現紅色底線 更改如下 innerHTML 可以累加 結果如下，會出現兩次 innerHTML 與 for 運用list.innerHTML 的位置是否可以放在 for 迴圈裡面呢？ 12345678910function updateList(e">
 <meta property="og:type" content="article">
 <meta property="og:title" content="innerhtml">
 <meta property="og:url" content="https://ruienyuski.github.io/blog/2020/09/12/innerhtml/index.html">
 <meta property="og:site_name" content="前端文章筆記">
-<meta property="og:description" content="innerHTML 組字串的引號問題如果外層是單引號，裡層包起來就要是雙引號，因為如果同樣是單引號，他不知道結束點在哪，會以為是在圈選處結束，如下圖，而出現紅色底線   更改如下   innerHTML 可以累加   結果如下，會出現兩次   innerHTML 與 for 運用list.innerHTML 的位置是否可以放在 for 迴圈裡面呢？ 12345678910function upda">
+<meta property="og:description" content="innerHTML 組字串的引號問題如果外層是單引號，裡層包起來就要是雙引號，因為如果同樣是單引號，他不知道結束點在哪，會以為是在圈選處結束，如下圖，而出現紅色底線 更改如下 innerHTML 可以累加 結果如下，會出現兩次 innerHTML 與 for 運用list.innerHTML 的位置是否可以放在 for 迴圈裡面呢？ 12345678910function updateList(e">
 <meta property="og:locale" content="zh_TW">
-<meta property="og:image" content="https://ruienyuski.github.io/blog/2020/09/12/innerhtml/innerhtml-1.png">
-<meta property="og:image" content="https://ruienyuski.github.io/blog/2020/09/12/innerhtml/innerhtml-2.png">
-<meta property="og:image" content="https://ruienyuski.github.io/blog/2020/09/12/innerhtml/innerhtml-3.png">
-<meta property="og:image" content="https://ruienyuski.github.io/blog/2020/09/12/innerhtml/innerhtml-4.png">
+<meta property="og:image" content="https://ruienyuski.github.io/photo/hexo_img/20200912_innerhtml/innerhtml-1.png">
+<meta property="og:image" content="https://ruienyuski.github.io/photo/hexo_img/20200912_innerhtml/innerhtml-2.png">
+<meta property="og:image" content="https://ruienyuski.github.io/photo/hexo_img/20200912_innerhtml/innerhtml-3.png">
+<meta property="og:image" content="https://ruienyuski.github.io/photo/hexo_img/20200912_innerhtml/innerhtml-4.png">
 <meta property="article:published_time" content="2020-09-12T07:51:09.000Z">
-<meta property="article:modified_time" content="2020-09-12T08:42:10.899Z">
+<meta property="article:modified_time" content="2020-09-12T09:07:30.033Z">
 <meta property="article:author" content="yuski">
 <meta property="article:tag" content="JavaScript">
 <meta property="article:tag" content="HTML">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://ruienyuski.github.io/blog/2020/09/12/innerhtml/innerhtml-1.png">
+<meta name="twitter:image" content="https://ruienyuski.github.io/photo/hexo_img/20200912_innerhtml/innerhtml-1.png">
 
 
 <link rel="canonical" href="https://ruienyuski.github.io/blog/2020/09/12/innerhtml/">
@@ -268,7 +268,7 @@
       <span class="post-meta-item-text">發表於</span>
       
 
-      <time title="創建時間：2020-09-12 15:51:09 / 修改時間：16:42:10" itemprop="dateCreated datePublished" datetime="2020-09-12T15:51:09+08:00">2020-09-12</time>
+      <time title="創建時間：2020-09-12 15:51:09 / 修改時間：17:07:30" itemprop="dateCreated datePublished" datetime="2020-09-12T15:51:09+08:00">2020-09-12</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -290,18 +290,10 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h2 id="innerHTML-組字串的引號問題"><a href="#innerHTML-組字串的引號問題" class="headerlink" title="innerHTML 組字串的引號問題"></a>innerHTML 組字串的引號問題</h2><p>如果外層是單引號，裡層包起來就要是雙引號，因為如果同樣是單引號，他不知道結束點在哪，會以為是在圈選處結束，如下圖，而出現紅色底線</p>
-<img src="/blog/2020/09/12/innerhtml/innerhtml-1.png" class="slug">
-
-<p>更改如下</p>
-<img src="/blog/2020/09/12/innerhtml/innerhtml-2.png" class="slug">
-
-<p>innerHTML 可以累加</p>
-<img src="/blog/2020/09/12/innerhtml/innerhtml-3.png" class="slug">
-
-<p>結果如下，會出現兩次</p>
-<img src="/blog/2020/09/12/innerhtml/innerhtml-4.png" class="slug">
-
+        <h2 id="innerHTML-組字串的引號問題"><a href="#innerHTML-組字串的引號問題" class="headerlink" title="innerHTML 組字串的引號問題"></a>innerHTML 組字串的引號問題</h2><p>如果外層是單引號，裡層包起來就要是雙引號，因為如果同樣是單引號，他不知道結束點在哪，會以為是在圈選處結束，如下圖，而出現紅色底線<br><img src="https://ruienyuski.github.io/photo/hexo_img/20200912_innerhtml/innerhtml-1.png"></p>
+<p>更改如下<br><img src="https://ruienyuski.github.io/photo/hexo_img/20200912_innerhtml/innerhtml-2.png"></p>
+<p>innerHTML 可以累加<br><img src="https://ruienyuski.github.io/photo/hexo_img/20200912_innerhtml/innerhtml-3.png"></p>
+<p>結果如下，會出現兩次<br><img src="https://ruienyuski.github.io/photo/hexo_img/20200912_innerhtml/innerhtml-4.png"></p>
 <h2 id="innerHTML-與-for-運用"><a href="#innerHTML-與-for-運用" class="headerlink" title="innerHTML 與 for 運用"></a>innerHTML 與 for 運用</h2><p><code>list.innerHTML</code> 的位置是否可以放在 <code>for 迴圈</code>裡面呢？</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> updateList(e)&#123;</span><br><span class="line">    var selected=e.target.value;</span><br><span class="line">    var str=<span class="string">&quot;&quot;</span>;</span><br><span class="line">    <span class="keyword">for</span>(var i=0;i&lt;country.length;i++)&#123;</span><br><span class="line">         <span class="keyword">if</span>(selected===country[i].place)&#123;</span><br><span class="line">             str+=<span class="string">&quot;&lt;li&gt;農夫名字是：&quot;</span>+country[i].farmer+<span class="string">&quot;&lt;/li&gt;&quot;</span>;</span><br><span class="line">             list.innerHTML=str;</span><br><span class="line">         &#125;;</span><br><span class="line">     &#125;;</span><br><span class="line"> &#125;;</span><br></pre></td></tr></table></figure>
 <p>邏輯上雖是可行，但是程式執行時，會屢次向網頁進行渲染，也就是不斷的重複寫入<br>所以比較好的方式是在放在 <code>for 迴圈</code>後面 (如下) ，當字串累加後，後面再執行 <code>innerHTML</code></p>
