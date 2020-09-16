@@ -22,27 +22,22 @@
     var CONFIG = {"hostname":"ruienyuski.github.io","root":"/blog/","scheme":"Pisces","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜尋...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}};
   </script>
 
-  <meta name="description" content="innerHTML 在處理迴圈或是字串會遇到常見的問題，如下文所示：">
+  <meta name="description" content="createElement 與 innerHTML 都是插入 HTML 標籤的兩種方法這邊整理 createElement 內容">
 <meta property="og:type" content="article">
-<meta property="og:title" content="innerhtml">
-<meta property="og:url" content="https://ruienyuski.github.io/blog/2020/09/12/innerhtml/index.html">
+<meta property="og:title" content="create_element">
+<meta property="og:url" content="https://ruienyuski.github.io/blog/2020/09/16/create-element/index.html">
 <meta property="og:site_name" content="前端文章筆記">
-<meta property="og:description" content="innerHTML 在處理迴圈或是字串會遇到常見的問題，如下文所示：">
+<meta property="og:description" content="createElement 與 innerHTML 都是插入 HTML 標籤的兩種方法這邊整理 createElement 內容">
 <meta property="og:locale" content="zh_TW">
-<meta property="og:image" content="https://ruienyuski.github.io/photo/hexo_img/20200912_innerhtml/innerhtml-1.png">
-<meta property="og:image" content="https://ruienyuski.github.io/photo/hexo_img/20200912_innerhtml/innerhtml-2.png">
-<meta property="og:image" content="https://ruienyuski.github.io/photo/hexo_img/20200912_innerhtml/innerhtml-3.png">
-<meta property="og:image" content="https://ruienyuski.github.io/photo/hexo_img/20200912_innerhtml/innerhtml-4.png">
-<meta property="article:published_time" content="2020-09-12T07:51:09.000Z">
-<meta property="article:modified_time" content="2020-09-12T09:40:58.643Z">
+<meta property="article:published_time" content="2020-09-16T09:18:31.000Z">
+<meta property="article:modified_time" content="2020-09-16T09:49:38.331Z">
 <meta property="article:author" content="yuski">
 <meta property="article:tag" content="JavaScript">
 <meta property="article:tag" content="HTML">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://ruienyuski.github.io/photo/hexo_img/20200912_innerhtml/innerhtml-1.png">
 
 
-<link rel="canonical" href="https://ruienyuski.github.io/blog/2020/09/12/innerhtml/">
+<link rel="canonical" href="https://ruienyuski.github.io/blog/2020/09/16/create-element/">
 
 
 <script class="page-configurations">
@@ -55,7 +50,7 @@
   };
 </script>
 
-  <title>innerhtml | 前端文章筆記</title>
+  <title>create_element | 前端文章筆記</title>
   
 
 
@@ -178,7 +173,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#innerHTML-%E7%B5%84%E5%AD%97%E4%B8%B2%E7%9A%84%E5%BC%95%E8%99%9F%E5%95%8F%E9%A1%8C"><span class="nav-number">1.</span> <span class="nav-text">innerHTML 組字串的引號問題</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#innerHTML-%E8%88%87-for-%E9%81%8B%E7%94%A8"><span class="nav-number">2.</span> <span class="nav-text">innerHTML 與 for 運用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AA%AA%E6%98%8E%E7%94%A8%E6%B3%95"><span class="nav-number">3.</span> <span class="nav-text">+&#x3D; 說明用法</span></a></li></ol></div>
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#createElement-%E5%AF%AB%E6%B3%95"><span class="nav-number">1.</span> <span class="nav-text">createElement 寫法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#appendChild-%E6%94%BE-for-%E8%BF%B4%E5%9C%88%E8%A3%A1%E9%9D%A2"><span class="nav-number">2.</span> <span class="nav-text">appendChild 放 for 迴圈裡面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%B4%E5%9C%88%E5%85%A7%E5%AE%A3%E5%91%8A-createElement"><span class="nav-number">3.</span> <span class="nav-text">迴圈內宣告 createElement</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#appendChild-%E6%94%BE%E5%9C%A8%E8%BF%B4%E5%9C%88%E5%85%A7"><span class="nav-number">4.</span> <span class="nav-text">appendChild 放在迴圈內</span></a></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -240,7 +235,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="https://ruienyuski.github.io/blog/2020/09/12/innerhtml/">
+    <link itemprop="mainEntityOfPage" href="https://ruienyuski.github.io/blog/2020/09/16/create-element/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/blog/images/avatar.gif">
@@ -256,7 +251,7 @@
     
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          innerhtml
+          create_element
         </h1>
 
         <div class="post-meta-container">
@@ -268,7 +263,7 @@
       <span class="post-meta-item-text">發表於</span>
       
 
-      <time title="創建時間：2020-09-12 15:51:09 / 修改時間：17:40:58" itemprop="dateCreated datePublished" datetime="2020-09-12T15:51:09+08:00">2020-09-12</time>
+      <time title="創建時間：2020-09-16 17:18:31 / 修改時間：17:49:38" itemprop="dateCreated datePublished" datetime="2020-09-16T17:18:31+08:00">2020-09-16</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -290,19 +285,17 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p>innerHTML 在處理迴圈或是字串會遇到常見的問題，如下文所示：</p>
+        <p>createElement 與 innerHTML 都是插入 HTML 標籤的兩種方法<br>這邊整理 createElement 內容</p>
 <a id="more"></a>
-<h2 id="innerHTML-組字串的引號問題"><a href="#innerHTML-組字串的引號問題" class="headerlink" title="innerHTML 組字串的引號問題"></a>innerHTML 組字串的引號問題</h2><p>如果外層是單引號，裡層包起來就要是雙引號，因為如果同樣是單引號，他不知道結束點在哪，會以為是在圈選處結束，如下圖，而出現紅色底線<br><img src="https://ruienyuski.github.io/photo/hexo_img/20200912_innerhtml/innerhtml-1.png"></p>
-<p>更改如下<br><img src="https://ruienyuski.github.io/photo/hexo_img/20200912_innerhtml/innerhtml-2.png"></p>
-<p>innerHTML 可以累加<br><img src="https://ruienyuski.github.io/photo/hexo_img/20200912_innerhtml/innerhtml-3.png"></p>
-<p>結果如下，會出現兩次<br><img src="https://ruienyuski.github.io/photo/hexo_img/20200912_innerhtml/innerhtml-4.png"></p>
-<h2 id="innerHTML-與-for-運用"><a href="#innerHTML-與-for-運用" class="headerlink" title="innerHTML 與 for 運用"></a>innerHTML 與 for 運用</h2><p><code>list.innerHTML</code> 的位置是否可以放在 <code>for 迴圈</code>裡面呢？</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> updateList(e)&#123;</span><br><span class="line">    var selected=e.target.value;</span><br><span class="line">    var str=<span class="string">&quot;&quot;</span>;</span><br><span class="line">    <span class="keyword">for</span>(var i=0;i&lt;country.length;i++)&#123;</span><br><span class="line">         <span class="keyword">if</span>(selected===country[i].place)&#123;</span><br><span class="line">             str+=<span class="string">&quot;&lt;li&gt;農夫名字是：&quot;</span>+country[i].farmer+<span class="string">&quot;&lt;/li&gt;&quot;</span>;</span><br><span class="line">             list.innerHTML=str;</span><br><span class="line">         &#125;;</span><br><span class="line">     &#125;;</span><br><span class="line"> &#125;;</span><br></pre></td></tr></table></figure>
-<p>邏輯上雖是可行，但是程式執行時，會屢次向網頁進行渲染，也就是不斷的重複寫入<br>所以比較好的方式是在放在 <code>for 迴圈</code>後面 (如下) ，當字串累加後，後面再執行 <code>innerHTML</code></p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> updateList(e)&#123;</span><br><span class="line">    var selected=e.target.value;</span><br><span class="line">    var str=<span class="string">&quot;&quot;</span>;</span><br><span class="line">    <span class="keyword">for</span>(var i=0;i&lt;country.length;i++)&#123;</span><br><span class="line">         <span class="keyword">if</span>(selected===country[i].place)&#123;</span><br><span class="line">             str+=<span class="string">&quot;&lt;li&gt;農夫名字是：&quot;</span>+country[i].farmer+<span class="string">&quot;&lt;/li&gt;&quot;</span>;</span><br><span class="line">         &#125;;</span><br><span class="line">     &#125;;</span><br><span class="line">    list.innerHTML=str;</span><br><span class="line"> &#125;;</span><br></pre></td></tr></table></figure>
-<h2 id="說明用法"><a href="#說明用法" class="headerlink" title="+= 說明用法"></a>+= 說明用法</h2><p>當在寫 <code>var str=&#39;hi&#39;</code> 時，裡面就被賦予字串，<br>而若有內容需要加上去，又不能影響原本的字串，<br>那就可以用</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">str( 原變數 ) = ( 重新賦予值 )  str( 原變數內容 )+ <span class="string">&#x27;Sue&#x27;</span> 字串</span><br><span class="line">str = str +  <span class="string">&#x27;Sue&#x27;</span> </span><br></pre></td></tr></table></figure>
-<p>而 <code>str+=&#39;Sue&#39;</code>，就是一種縮寫方式，此種等同於 <code>str = str+ &#39;Sue&#39;</code><br>如果不習慣這樣的縮寫，可直接用 <code>str = str + &#39;Sue&#39;</code> 這種寫法</p>
+<h2 id="createElement-寫法"><a href="#createElement-寫法" class="headerlink" title="createElement 寫法"></a>createElement 寫法</h2><p>先使用 createElement 建立元素，以下將內容放到 <a target="_blank" rel="noopener" href="https://codepen.io/HexSchool_yuko/pen/poyZxEX">Codepen</a></p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var li = document.createElement(<span class="string">&#x27;li&#x27;</span>);</span><br><span class="line">li.textContent = <span class="string">&#x27;item 1&#x27;</span>;</span><br></pre></td></tr></table></figure>
+<p>再使用 appendChild 用新增子節點的方式去新增</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">document.querySelector(<span class="string">&#x27;ul&#x27;</span>).appendChild(li);</span><br></pre></td></tr></table></figure>
+<p>以上可參考 JS 第 1-3 行註解內容<br>若要大量增加，可使用 for 迴圈，可參考 JS 第 5-24 行內容</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">var data = [</span><br><span class="line">  &#123;</span><br><span class="line">    student: <span class="string">&#x27;joe&#x27;</span>,</span><br><span class="line">    age:10,</span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    student: <span class="string">&#x27;bill&#x27;</span>,</span><br><span class="line">    age:9,</span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    student: <span class="string">&#x27;kevin&#x27;</span>,</span><br><span class="line">    age:11,</span><br><span class="line">  &#125;,    </span><br><span class="line">];</span><br><span class="line">var len = data.length;</span><br><span class="line"><span class="keyword">for</span>(var i=0; i&lt;len; i++) &#123;</span><br><span class="line">  var li = document.createElement(<span class="string">&#x27;li&#x27;</span>);</span><br><span class="line">  li.textContent = data[i].student;</span><br><span class="line">  document.querySelector(<span class="string">&#x27;ul&#x27;</span>).appendChild(li);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="appendChild-放-for-迴圈裡面"><a href="#appendChild-放-for-迴圈裡面" class="headerlink" title="appendChild 放 for 迴圈裡面"></a>appendChild 放 for 迴圈裡面</h2><p>appendChild 放 for 裡面是每個產生一個元素，就將該元素寫入到對應位置。<br>但放外面的話，他就只會放最後一筆資料到裡頭。</p>
+<h2 id="迴圈內宣告-createElement"><a href="#迴圈內宣告-createElement" class="headerlink" title="迴圈內宣告 createElement"></a>迴圈內宣告 createElement</h2><p>迴圈內宣告 createElement 代表每跑一次迴圈都會宣告並產生一個新的 li 元素<br>把 document.createElement(“li”) 放在迴圈外<br>他會導致每次迴圈在執行，都會替換「同一個」之前宣告好的 li 文字內容<br>也就是每次新增都是取代前一個<br>所以要能產生多筆內容，建議把他放在迴圈內</p>
+<h2 id="appendChild-放在迴圈內"><a href="#appendChild-放在迴圈內" class="headerlink" title="appendChild 放在迴圈內"></a>appendChild 放在迴圈內</h2><p>appendChild 它的特性是會在後面做累加動作<br>放在迴圈外，他就只會放最後一筆資料到裡頭</p>
 
     </div>
 
@@ -320,14 +313,11 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/blog/2020/09/11/input_value/" rel="prev" title="input.value 取值狀況">
-                  <i class="fa fa-chevron-left"></i> input.value 取值狀況
+                <a href="/blog/2020/09/12/hexo-%E4%B8%8A%E5%82%B3%E5%9C%96%E7%89%87%E8%A7%A3%E6%B1%BA%E6%96%B9%E5%BC%8F/" rel="prev" title="hexo 上傳圖片解決方式">
+                  <i class="fa fa-chevron-left"></i> hexo 上傳圖片解決方式
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/blog/2020/09/12/hexo-%E4%B8%8A%E5%82%B3%E5%9C%96%E7%89%87%E8%A7%A3%E6%B1%BA%E6%96%B9%E5%BC%8F/" rel="next" title="hexo 上傳圖片解決方式">
-                  hexo 上傳圖片解決方式 <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
     </footer>
