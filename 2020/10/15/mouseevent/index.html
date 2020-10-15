@@ -22,22 +22,23 @@
     var CONFIG = {"hostname":"ruienyuski.github.io","root":"/blog/","scheme":"Pisces","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜尋...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}};
   </script>
 
-  <meta name="description" content="input value 會有取值的狀況，如下文所示：">
+  <meta name="description" content="整理一些 mouse 滑過事件差異">
 <meta property="og:type" content="article">
-<meta property="og:title" content="input.value 取值狀況">
-<meta property="og:url" content="https://ruienyuski.github.io/blog/2020/09/11/input_value/index.html">
+<meta property="og:title" content="mouse 滑過事件差異">
+<meta property="og:url" content="https://ruienyuski.github.io/blog/2020/10/15/mouseevent/index.html">
 <meta property="og:site_name" content="前端文章筆記">
-<meta property="og:description" content="input value 會有取值的狀況，如下文所示：">
+<meta property="og:description" content="整理一些 mouse 滑過事件差異">
 <meta property="og:locale" content="zh_TW">
-<meta property="article:published_time" content="2020-09-11T08:28:32.000Z">
-<meta property="article:modified_time" content="2020-09-16T09:54:09.289Z">
+<meta property="article:published_time" content="2020-10-15T02:34:54.000Z">
+<meta property="article:modified_time" content="2020-10-15T03:53:18.946Z">
 <meta property="article:author" content="yuski">
 <meta property="article:tag" content="JavaScript">
 <meta property="article:tag" content="HTML">
+<meta property="article:tag" content="jQuery">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://ruienyuski.github.io/blog/2020/09/11/input_value/">
+<link rel="canonical" href="https://ruienyuski.github.io/blog/2020/10/15/mouseevent/">
 
 
 <script class="page-configurations">
@@ -50,7 +51,7 @@
   };
 </script>
 
-  <title>input.value 取值狀況 | 前端文章筆記</title>
+  <title>mouse 滑過事件差異 | 前端文章筆記</title>
   
 
 
@@ -173,7 +174,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%A8%E5%9F%9F%E8%88%87%E5%8D%80%E5%9F%9F%E8%A8%AD%E5%AE%9A-input-value-%E5%B7%AE%E7%95%B0"><span class="nav-number">1.</span> <span class="nav-text">全域與區域設定 input value 差異</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B8%85%E7%A9%BA-input-value"><span class="nav-number">2.</span> <span class="nav-text">清空 input.value</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%99%90%E5%88%B6-input-%E8%BC%B8%E5%85%A5%E9%95%B7%E5%BA%A6"><span class="nav-number">3.</span> <span class="nav-text">限制 input 輸入長度</span></a></li></ol></div>
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8B%E4%BB%B6%E8%A7%A3%E9%87%8B"><span class="nav-number">1.</span> <span class="nav-text">事件解釋</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9B%B8%E9%97%9C%E8%A8%8E%E8%AB%96%E6%96%87%E7%AB%A0"><span class="nav-number">2.</span> <span class="nav-text">相關討論文章</span></a></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -235,7 +236,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="https://ruienyuski.github.io/blog/2020/09/11/input_value/">
+    <link itemprop="mainEntityOfPage" href="https://ruienyuski.github.io/blog/2020/10/15/mouseevent/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/blog/images/avatar.gif">
@@ -251,7 +252,7 @@
     
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          input.value 取值狀況
+          mouse 滑過事件差異
         </h1>
 
         <div class="post-meta-container">
@@ -261,16 +262,10 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">發表於</span>
+      
 
-      <time title="創建時間：2020-09-11 16:28:32" itemprop="dateCreated datePublished" datetime="2020-09-11T16:28:32+08:00">2020-09-11</time>
+      <time title="創建時間：2020-10-15 10:34:54 / 修改時間：11:53:18" itemprop="dateCreated datePublished" datetime="2020-10-15T10:34:54+08:00">2020-10-15</time>
     </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新於</span>
-        <time title="修改時間：2020-09-16 17:54:09" itemprop="dateModified" datetime="2020-09-16T17:54:09+08:00">2020-09-16</time>
-      </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
@@ -291,14 +286,39 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p><code>input value</code> 會有取值的狀況，如下文所示：</p>
+        <p>整理一些 mouse 滑過事件差異</p>
 <a id="more"></a>
-<h2 id="全域與區域設定-input-value-差異"><a href="#全域與區域設定-input-value-差異" class="headerlink" title="全域與區域設定 input value 差異"></a>全域與區域設定 input value 差異</h2><p>全域設定 <code>input.value</code> 時，如果 <code>HTML</code> 沒有設 <code>value</code> 網頁載入時候會是空值<br>可參考這個<a target="_blank" rel="noopener" href="https://codepen.io/HexSchool_yuko/pen/QXXPvm">範例</a></p>
-<h2 id="清空-input-value"><a href="#清空-input-value" class="headerlink" title="清空 input.value"></a>清空 input.value</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">addTodo</span></span>() &#123;</span><br><span class="line">var txt = document.querySelector(<span class="string">&#x27;.text&#x27;</span>).value;</span><br><span class="line">txt = <span class="string">&#x27;&#x27;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>因為 <code>txt</code> 是儲存 <code>input</code> 元素的值<br>換句話說是新增記憶體 ( 變數 <code>txt</code>) 來存放 <code>document.querySelector(&#39;.text&#39;).value</code><br>並非取得當下的 <code>input</code> 元素的值<br>所以會建議直接使用 <code>txt.value</code><br>因此改為 <code>var txt = document.querySelector(&#39;.text&#39;);</code><br>並用 <code>txt.value</code> 就能清空當下的 <code>input.value</code></p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">addTodo</span></span>() &#123;</span><br><span class="line">var txt = document.querySelector(<span class="string">&#x27;.text&#x27;</span>);</span><br><span class="line">txt.value = <span class="string">&#x27;&#x27;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="限制-input-輸入長度"><a href="#限制-input-輸入長度" class="headerlink" title="限制 input 輸入長度"></a>限制 input 輸入長度</h2><p>限制字數可使用 <code>maxlength</code> 若 <code>type=&quot;number&quot;</code> 是無法使用這個語法，需改為 <code>type=&quot;tel&quot;</code><br>可參考這篇<a target="_blank" rel="noopener" href="https://www.itread01.com/articles/1498672640.html">文章</a></p>
+<h2 id="事件解釋"><a href="#事件解釋" class="headerlink" title="事件解釋"></a>事件解釋</h2><ul>
+<li><p><code>mouseover</code> : 當滑鼠移動到被選元素和被選元素的子元素時，<code>mouseover</code> 事件就會被觸發。<br><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/Element/mouseover_event">mouseover MDN 文件</a></p>
+</li>
+<li><p><code>mousemove</code> : 當滑鼠移動到被選元素內後，<code>mousemove</code> 事件被觸發。<br><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/Element/mousemove_event">mousemove MDN 文件</a></p>
+</li>
+<li><p><code>mouseenter</code>: 當滑鼠移動到元素上時就會觸發 <code>mouseenter</code> 事件，類似 <code>mouseover</code>，它們兩者之間的差別是 <code>mouseenter</code> 不會冒泡（bubble），也就是說當游標從它的子層物理空間移到它的物理空間上時不會觸發<br><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/Element/mouseenter_event">mouseenter MDN 文件</a></p>
+</li>
+</ul>
+<h2 id="相關討論文章"><a href="#相關討論文章" class="headerlink" title="相關討論文章"></a>相關討論文章</h2><ul>
+<li><code>jQuery</code> 的 <code>mouseover()</code> 與  <code>hover()</code> 差異可參考 <a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/17589420/when-to-choose-mouseover-and-hover-function">stackoverflow 討論</a><ul>
+<li><code>mouseover()</code>：將事件綁定在「<code>mouseover</code>」 <code>JavaScript</code>事件，或在元素上觸發該事件。</li>
+<li><code>hover()</code>：將一個或兩個處理程序綁定到匹配的元素，以在滑鼠游標進入和離開元素時執行。</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><code>CSS hover</code> 與 <code>JavaScript mouseover</code> 討論可參考 <a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/608788/css-hover-vs-javascript-mouseover">stackoverflow 討論</a><ul>
+<li>討論中有人提到 CSS 比較好維護，也有提到 <code>CSS hover</code> 在 <code>IE6</code> 雖可支援，但因為後來的 <code>IE7</code> 對 <code>CSS2</code> 的支持程度約為<code>50%</code> 所以不支援 <code>div：hover</code></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p><code>javascript</code> 中 <code>mouseenter</code> 與 <code>mouseover</code> 差異也可看下面的文章</p>
+<ul>
+<li><p><a target="_blank" rel="noopener" href="https://codertw.com/%E5%89%8D%E7%AB%AF%E9%96%8B%E7%99%BC/236517/">javascript 中 mouseenter 與 mouseover 的異同</a><br>裡面也提供<a target="_blank" rel="noopener" href="https://qianlongo.github.io/zepto-analysis/example/event/mouseEnter-mouseOver.html">範例</a>來顯示其差異</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.geeksforgeeks.org/difference-between-mouseover-mouseenter-and-mousemove-events-in-javascript/">Difference between mouseover, mouseenter and mousemove events in JavaScript</a><br>裡面提供 <code>mouseover</code>、<code>mouseenter</code>、<code>mousemove</code> 簡單說明</p>
+</li>
+</ul>
+</li>
+</ul>
 
     </div>
 
@@ -310,17 +330,18 @@
           <div class="post-tags">
               <a href="/blog/tags/JavaScript/" rel="tag"># JavaScript</a>
               <a href="/blog/tags/HTML/" rel="tag"># HTML</a>
+              <a href="/blog/tags/jQuery/" rel="tag"># jQuery</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
+                <a href="/blog/2020/10/14/switch-loop/" rel="prev" title="switch (true) 代替 if / else">
+                  <i class="fa fa-chevron-left"></i> switch (true) 代替 if / else
+                </a>
             </div>
             <div class="post-nav-item">
-                <a href="/blog/2020/09/12/innerhtml/" rel="next" title="innerhtml">
-                  innerhtml <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
     </footer>
