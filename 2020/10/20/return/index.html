@@ -22,27 +22,21 @@
     var CONFIG = {"hostname":"ruienyuski.github.io","root":"/blog/","scheme":"Pisces","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜尋...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}};
   </script>
 
-  <meta name="description" content="innerHTML 在處理迴圈或是字串會遇到常見的問題，如下文所示：">
+  <meta name="description" content="整理 function 的 return 觀念和用法">
 <meta property="og:type" content="article">
-<meta property="og:title" content="innerhtml">
-<meta property="og:url" content="https://ruienyuski.github.io/blog/2020/09/12/innerhtml/index.html">
+<meta property="og:title" content="return">
+<meta property="og:url" content="https://ruienyuski.github.io/blog/2020/10/20/return/index.html">
 <meta property="og:site_name" content="前端文章筆記">
-<meta property="og:description" content="innerHTML 在處理迴圈或是字串會遇到常見的問題，如下文所示：">
+<meta property="og:description" content="整理 function 的 return 觀念和用法">
 <meta property="og:locale" content="zh_TW">
-<meta property="og:image" content="https://ruienyuski.github.io/photo/hexo_img/20200912_innerhtml/innerhtml-1.png">
-<meta property="og:image" content="https://ruienyuski.github.io/photo/hexo_img/20200912_innerhtml/innerhtml-2.png">
-<meta property="og:image" content="https://ruienyuski.github.io/photo/hexo_img/20200912_innerhtml/innerhtml-3.png">
-<meta property="og:image" content="https://ruienyuski.github.io/photo/hexo_img/20200912_innerhtml/innerhtml-4.png">
-<meta property="article:published_time" content="2020-09-12T07:51:09.000Z">
-<meta property="article:modified_time" content="2020-09-16T09:54:02.651Z">
+<meta property="article:published_time" content="2020-10-20T02:51:58.000Z">
+<meta property="article:modified_time" content="2020-10-20T03:05:34.962Z">
 <meta property="article:author" content="yuski">
 <meta property="article:tag" content="JavaScript">
-<meta property="article:tag" content="HTML">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://ruienyuski.github.io/photo/hexo_img/20200912_innerhtml/innerhtml-1.png">
 
 
-<link rel="canonical" href="https://ruienyuski.github.io/blog/2020/09/12/innerhtml/">
+<link rel="canonical" href="https://ruienyuski.github.io/blog/2020/10/20/return/">
 
 
 <script class="page-configurations">
@@ -55,7 +49,7 @@
   };
 </script>
 
-  <title>innerhtml | 前端文章筆記</title>
+  <title>return | 前端文章筆記</title>
   
 
 
@@ -166,7 +160,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+    <div class="sidebar-inner sidebar-overview-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目錄
@@ -178,7 +172,6 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#innerHTML-%E7%B5%84%E5%AD%97%E4%B8%B2%E7%9A%84%E5%BC%95%E8%99%9F%E5%95%8F%E9%A1%8C"><span class="nav-number">1.</span> <span class="nav-text">innerHTML 組字串的引號問題</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#innerHTML-%E8%88%87-for-%E9%81%8B%E7%94%A8"><span class="nav-number">2.</span> <span class="nav-text">innerHTML 與 for 運用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AA%AA%E6%98%8E%E7%94%A8%E6%B3%95"><span class="nav-number">3.</span> <span class="nav-text">+&#x3D; 說明用法</span></a></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -240,7 +233,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="https://ruienyuski.github.io/blog/2020/09/12/innerhtml/">
+    <link itemprop="mainEntityOfPage" href="https://ruienyuski.github.io/blog/2020/10/20/return/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/blog/images/avatar.gif">
@@ -256,7 +249,7 @@
     
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          innerhtml
+          return
         </h1>
 
         <div class="post-meta-container">
@@ -266,16 +259,10 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">發表於</span>
+      
 
-      <time title="創建時間：2020-09-12 15:51:09" itemprop="dateCreated datePublished" datetime="2020-09-12T15:51:09+08:00">2020-09-12</time>
+      <time title="創建時間：2020-10-20 10:51:58 / 修改時間：11:05:34" itemprop="dateCreated datePublished" datetime="2020-10-20T10:51:58+08:00">2020-10-20</time>
     </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新於</span>
-        <time title="修改時間：2020-09-16 17:54:02" itemprop="dateModified" datetime="2020-09-16T17:54:02+08:00">2020-09-16</time>
-      </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
@@ -296,19 +283,11 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p><code>innerHTML</code> 在處理迴圈或是字串會遇到常見的問題，如下文所示：</p>
+        <p>整理 <code>function</code> 的 <code>return</code> 觀念和用法</p>
 <a id="more"></a>
-<h2 id="innerHTML-組字串的引號問題"><a href="#innerHTML-組字串的引號問題" class="headerlink" title="innerHTML 組字串的引號問題"></a>innerHTML 組字串的引號問題</h2><p>如果外層是單引號，裡層包起來就要是雙引號，因為如果同樣是單引號，他不知道結束點在哪，會以為是在圈選處結束，如下圖，而出現紅色底線<br><img src="https://ruienyuski.github.io/photo/hexo_img/20200912_innerhtml/innerhtml-1.png"></p>
-<p>更改如下<br><img src="https://ruienyuski.github.io/photo/hexo_img/20200912_innerhtml/innerhtml-2.png"></p>
-<p>innerHTML 可以累加<br><img src="https://ruienyuski.github.io/photo/hexo_img/20200912_innerhtml/innerhtml-3.png"></p>
-<p>結果如下，會出現兩次<br><img src="https://ruienyuski.github.io/photo/hexo_img/20200912_innerhtml/innerhtml-4.png"></p>
-<h2 id="innerHTML-與-for-運用"><a href="#innerHTML-與-for-運用" class="headerlink" title="innerHTML 與 for 運用"></a>innerHTML 與 for 運用</h2><p><code>list.innerHTML</code> 的位置是否可以放在 <code>for 迴圈</code>裡面呢？</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> updateList(e)&#123;</span><br><span class="line">    var selected=e.target.value;</span><br><span class="line">    var str=<span class="string">&quot;&quot;</span>;</span><br><span class="line">    <span class="keyword">for</span>(var i=0;i&lt;country.length;i++)&#123;</span><br><span class="line">         <span class="keyword">if</span>(selected===country[i].place)&#123;</span><br><span class="line">             str+=<span class="string">&quot;&lt;li&gt;農夫名字是：&quot;</span>+country[i].farmer+<span class="string">&quot;&lt;/li&gt;&quot;</span>;</span><br><span class="line">             list.innerHTML=str;</span><br><span class="line">         &#125;;</span><br><span class="line">     &#125;;</span><br><span class="line"> &#125;;</span><br></pre></td></tr></table></figure>
-<p>邏輯上雖是可行，但是程式執行時，會屢次向網頁進行渲染，也就是不斷的重複寫入<br>所以比較好的方式是在放在 <code>for 迴圈</code>後面 (如下) ，當字串累加後，後面再執行 <code>innerHTML</code></p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> updateList(e)&#123;</span><br><span class="line">    var selected=e.target.value;</span><br><span class="line">    var str=<span class="string">&quot;&quot;</span>;</span><br><span class="line">    <span class="keyword">for</span>(var i=0;i&lt;country.length;i++)&#123;</span><br><span class="line">         <span class="keyword">if</span>(selected===country[i].place)&#123;</span><br><span class="line">             str+=<span class="string">&quot;&lt;li&gt;農夫名字是：&quot;</span>+country[i].farmer+<span class="string">&quot;&lt;/li&gt;&quot;</span>;</span><br><span class="line">         &#125;;</span><br><span class="line">     &#125;;</span><br><span class="line">    list.innerHTML=str;</span><br><span class="line"> &#125;;</span><br></pre></td></tr></table></figure>
-<h2 id="說明用法"><a href="#說明用法" class="headerlink" title="+= 說明用法"></a>+= 說明用法</h2><p>當在寫 <code>var str=&#39;hi&#39;</code> 時，裡面就被賦予字串，<br>而若有內容需要加上去，又不能影響原本的字串，<br>那就可以用</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">str( 原變數 ) = ( 重新賦予值 )  str( 原變數內容 )+ <span class="string">&#x27;Sue&#x27;</span> 字串</span><br><span class="line">str = str +  <span class="string">&#x27;Sue&#x27;</span> </span><br></pre></td></tr></table></figure>
-<p>而 <code>str+=&#39;Sue&#39;</code>，就是一種縮寫方式，此種等同於 <code>str = str+ &#39;Sue&#39;</code><br>如果不習慣這樣的縮寫，可直接用 <code>str = str + &#39;Sue&#39;</code> 這種寫法</p>
+<p>關於 <code>return</code> 和 <code>function</code> 比較好理解的方式是<br><code>function</code> 就是一個計算機，當要執行 <code>function</code> 時，就表示要拿起計算機開始算了，<br>此時按下 <code>100 * 10</code>，希望可以結束運算並回傳資料時，就會按計算機的「<code>=</code>」符號來顯示運算結果，<br>進而得到想知道的計算結果。<br>而 <code>return</code> 就是計算機的「<code>=</code>」，按下去就會顯示運算結果了<br>因此 <code>return</code> 之後是不會再執行後面的程式了，直接結束，相當於 <code>break</code><br>所以除了回傳值，還可以當中斷點</p>
+<p>而且其實 <code>function</code> 都要回傳值，若是沒有用 <code>return</code> 回傳，他預設會顯示 <code>undefined</code><br>可參考 <code>stackoverflow</code> 的 <a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/48362507/console-logmyfunction-returns-undefined">「console.log(myFunction()) returns undefined」討論內容</a></p>
+<p>關於 <code>return</code> 用法可參考<a target="_blank" rel="noopener" href="https://blog.csdn.net/yulei_qq/article/details/45317579">這篇文章</a><br>他下方總結就有說明<br><code>retrun true</code>： 返回正確的處理結果。<br><code>return false</code>：返回錯誤的處理結果、終止處理、阻止提交表單、阻止執行默認的行為。<br><code>return</code>：把控制權返回給頁面。</p>
 
     </div>
 
@@ -319,21 +298,17 @@
     <footer class="post-footer">
           <div class="post-tags">
               <a href="/blog/tags/JavaScript/" rel="tag"># JavaScript</a>
-              <a href="/blog/tags/HTML/" rel="tag"># HTML</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/blog/2020/09/11/input_value/" rel="prev" title="input.value 取值狀況">
-                  <i class="fa fa-chevron-left"></i> input.value 取值狀況
+                <a href="/blog/2020/10/20/querySelector/" rel="prev" title="querySelector">
+                  <i class="fa fa-chevron-left"></i> querySelector
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/blog/2020/09/12/hexo-%E4%B8%8A%E5%82%B3%E5%9C%96%E7%89%87%E8%A7%A3%E6%B1%BA%E6%96%B9%E5%BC%8F/" rel="next" title="hexo 上傳圖片解決方式">
-                  hexo 上傳圖片解決方式 <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
     </footer>
