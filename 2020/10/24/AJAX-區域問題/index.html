@@ -22,21 +22,21 @@
     var CONFIG = {"hostname":"ruienyuski.github.io","root":"/blog/","scheme":"Pisces","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜尋...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}};
   </script>
 
-  <meta name="description" content="紀錄前端相關內容">
-<meta property="og:type" content="website">
-<meta property="og:title" content="categories">
-<meta property="og:url" content="https://ruienyuski.github.io/blog/categories/index.html">
+  <meta name="description" content="若要按鈕觸發 AJAX 事件需注意區域問題">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AJAX 區域問題">
+<meta property="og:url" content="https://ruienyuski.github.io/blog/2020/10/24/AJAX-%E5%8D%80%E5%9F%9F%E5%95%8F%E9%A1%8C/index.html">
 <meta property="og:site_name" content="前端文章筆記">
-<meta property="og:description" content="紀錄前端相關內容">
+<meta property="og:description" content="若要按鈕觸發 AJAX 事件需注意區域問題">
 <meta property="og:locale" content="zh_TW">
-<meta property="article:published_time" content="2020-09-11T09:14:19.000Z">
-<meta property="article:modified_time" content="2020-09-11T09:14:47.869Z">
+<meta property="article:published_time" content="2020-10-24T13:05:26.000Z">
+<meta property="article:modified_time" content="2020-10-24T13:33:29.624Z">
 <meta property="article:author" content="yuski">
-<meta property="article:tag" content="front end, 前端, JavaScript, HTML, CSS">
+<meta property="article:tag" content="JavaScript">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://ruienyuski.github.io/blog/categories/">
+<link rel="canonical" href="https://ruienyuski.github.io/blog/2020/10/24/AJAX-%E5%8D%80%E5%9F%9F%E5%95%8F%E9%A1%8C/">
 
 
 <script class="page-configurations">
@@ -44,13 +44,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'zh-TW'
   };
 </script>
 
-  <title>categories | 前端文章筆記
-</title>
+  <title>AJAX 區域問題 | 前端文章筆記</title>
   
 
 
@@ -225,53 +224,98 @@
 </noscript>
 
 
-    <div class="main-inner page posts-expand">
+    <div class="main-inner post posts-expand">
       
-  
-  
 
       
 
     
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://ruienyuski.github.io/blog/2020/10/24/AJAX-%E5%8D%80%E5%9F%9F%E5%95%8F%E9%A1%8C/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
+      <meta itemprop="name" content="yuski">
+      <meta itemprop="description" content="紀錄前端相關內容">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="前端文章筆記">
+    </span>
+
     
     
-    <div class="post-block" lang="zh-TW">
       <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          AJAX 區域問題
+        </h1>
 
-<h1 class="post-title" itemprop="name headline">categories
-</h1>
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">發表於</span>
+      
 
-<div class="post-meta-container">
+      <time title="創建時間：2020-10-24 21:05:26 / 修改時間：21:33:29" itemprop="dateCreated datePublished" datetime="2020-10-24T21:05:26+08:00">2020-10-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分類於</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/blog/categories/JavaScript/" itemprop="url" rel="index"><span itemprop="name">JavaScript</span></a>
+        </span>
+    </span>
+
   
-
 </div>
 
-</header>
+        </div>
+      </header>
 
-      
-      
-      
-      <div class="post-body">
-          <div class="category-all-page">
-  <div class="category-all-title">
-    目前共有 2 個分類
-  </div>
-  <div class="category-all">
-    <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/JavaScript/">JavaScript</a><span class="category-list-count">15</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/hexo/">hexo</a><span class="category-list-count">1</span></li></ul>
-  </div>
-</div>
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>若要按鈕觸發 <code>AJAX</code> 事件需注意區域問題</p>
+<a id="more"></a>
+<p>透過 <code>XMLHttpRequest</code> 物件跨瀏覽器撈資料時候會有要觸發按鈕事件的狀況<br>例如透過按鈕來登入和註冊等事件<br>可參考這個 <a target="_blank" rel="noopener" href="https://codepen.io/HexSchool_yuko/pen/OJXWwrG">codepen 範例</a><br>裡面的 11-16 和 46-51 行放在全域後，第二次按下註冊按鈕或第二次按下登入按鈕會出現下面的錯誤訊息<br>「Uncaught InvalidStateError: Failed to execute ‘send’ on ‘XMLHttpRequest’: The object’s state must be OPENED. 」</p>
+<p><code>xhr.open</code> 和 <code>xhr.setRequestHeader</code> 需在按鈕監聽事件內<br>如果放在全域其實就已經執行 <code>AJAX</code> 行為，因此第一次可以從遠端接到回應<br>但第二次按下並沒有開啟 <code>AJAX</code> 行為，因為第一次全域觸發後就結束，所以就會跳出錯誤訊息<br>所以每一次的 <code>AJAX</code> 行為都要重新建立，也就是要把 <code>xhr.open</code> 和 <code>xhr.setRequestHeader</code>放在按鈕監聽事件內</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/blog/tags/JavaScript/" rel="tag"># JavaScript</a>
+          </div>
 
         
-      </div>
-      
-      
-      
-    </div>
-    
 
-    
-    
-    
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/blog/2020/10/23/localStorage/" rel="prev" title="localStorage">
+                  <i class="fa fa-chevron-left"></i> localStorage
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+  
+  
+  
+
 
 
       
