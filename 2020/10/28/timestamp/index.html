@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.1.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/blog/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/blog/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/blog/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/blog/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/blog/css/main.css">
+
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"ruienyuski.github.io","root":"/blog/","scheme":"Pisces","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜尋...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}};
+  </script>
+
+  <meta name="description" content="整理日期轉換的方式">
+<meta property="og:type" content="article">
+<meta property="og:title" content="UNIX timestamp 整理">
+<meta property="og:url" content="https://ruienyuski.github.io/blog/2020/10/28/timestamp/index.html">
+<meta property="og:site_name" content="前端文章筆記">
+<meta property="og:description" content="整理日期轉換的方式">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2020-10-28T02:05:13.000Z">
+<meta property="article:modified_time" content="2020-10-28T03:46:52.529Z">
+<meta property="article:author" content="yuski">
+<meta property="article:tag" content="JavaScript">
+<meta property="article:tag" content="HTML">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://ruienyuski.github.io/blog/2020/10/28/timestamp/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-TW'
+  };
+</script>
+
+  <title>UNIX timestamp 整理 | 前端文章筆記</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切換導航欄">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/blog/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">前端文章筆記</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">記下內容的雜文區</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/blog/" rel="section"><i class="fa fa-home fa-fw"></i>首頁</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/blog/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>標籤</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/blog/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分類</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目錄
+        </li>
+        <li class="sidebar-nav-overview">
+          本站概要
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <section class="post-toc-wrap sidebar-panel">
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%96%E5%BE%97%E6%97%A5%E6%9C%9F%E6%99%82%E9%96%93"><span class="nav-number">1.</span> <span class="nav-text">取得日期時間</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#UNIX-timestamp-%E7%B0%A1%E4%BB%8B"><span class="nav-number">2.</span> <span class="nav-text">UNIX timestamp 簡介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%96%E5%BE%97%E6%9F%90%E5%80%8B%E6%99%82%E9%96%93"><span class="nav-number">3.</span> <span class="nav-text">取得某個時間</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#UNIX-timestamp-%E8%BD%89%E6%8F%9B%E7%95%B6%E4%B8%8B%E6%99%82%E9%96%93"><span class="nav-number">4.</span> <span class="nav-text">UNIX timestamp 轉換當下時間</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#UNIX-timestamp-%E8%BD%89%E6%8F%9B"><span class="nav-number">5.</span> <span class="nav-text">UNIX timestamp 轉換</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BD%89%E6%8F%9B%E6%97%A5%E6%9C%9F"><span class="nav-number">5.1.</span> <span class="nav-text">轉換日期</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BD%89%E6%8F%9B-timestamp"><span class="nav-number">5.2.</span> <span class="nav-text">轉換 timestamp</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BD%89%E6%8F%9B%E6%88%90%E5%B8%B8%E8%A6%8B%E6%97%A5%E6%9C%9F%E6%A0%BC%E5%BC%8F"><span class="nav-number">6.</span> <span class="nav-text">轉換成常見日期格式</span></a></li></ol></div>
+      </section>
+      <!--/noindex-->
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">yuski</p>
+  <div class="site-description" itemprop="description">紀錄前端相關內容</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/blog/archives">
+          <span class="site-state-item-count">19</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/blog/categories/">
+          
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">分類</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/blog/tags/">
+          
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">標籤</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </section>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+      
+
+      
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://ruienyuski.github.io/blog/2020/10/28/timestamp/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
+      <meta itemprop="name" content="yuski">
+      <meta itemprop="description" content="紀錄前端相關內容">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="前端文章筆記">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          UNIX timestamp 整理
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">發表於</span>
+      
+
+      <time title="創建時間：2020-10-28 10:05:13 / 修改時間：11:46:52" itemprop="dateCreated datePublished" datetime="2020-10-28T10:05:13+08:00">2020-10-28</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分類於</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/blog/categories/JavaScript/" itemprop="url" rel="index"><span itemprop="name">JavaScript</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>整理日期轉換的方式</p>
+<a id="more"></a>
+<h2 id="取得日期時間"><a href="#取得日期時間" class="headerlink" title="取得日期時間"></a>取得日期時間</h2><p>在 <code>JavaScript</code> 若要取得時間可用 <code>new Date()</code><br>而若要瞭解完整時間可輸入下列程式碼</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var time = new Date()</span><br><span class="line">time.getFullYear()</span><br><span class="line">time.getMonth()               //    回傳數值，取得該日的月份，月份 0 表示 1 月！</span><br><span class="line">time.getDate()                //    回傳數值，取得該日為該月份的幾號</span><br><span class="line">time.getDay()                 //    回傳數值，取得該日為星期幾</span><br><span class="line">time.getSeconds()             //    回傳數值，取得日期物件的秒資訊</span><br><span class="line">time.getMinutes()             //    回傳數值，取得日期物件的分資訊分</span><br><span class="line">time.getHours()               //    回傳數值，取得日期物件的小時資訊</span><br></pre></td></tr></table></figure>
+<h2 id="UNIX-timestamp-簡介"><a href="#UNIX-timestamp-簡介" class="headerlink" title="UNIX timestamp 簡介"></a>UNIX timestamp 簡介</h2><p>但因為全球因為有時區問題，所以需要共通自訂時間，稱為 <code>UNIX 時間</code><br>從 1970 年 1 月 1 日 0 時 0 分 0 秒起至現在的總秒數，不考慮閏秒。<br>下面的語法是取得總毫秒，但一般的 <code>UNIX timestamp</code> 通常是以秒數為單位<br>可參考<a target="_blank" rel="noopener" href="https://stackoverflow.com/a/4676213">stackoverflow 討論</a></p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Date.now() //  回傳當前的 timestamp（毫秒）</span><br></pre></td></tr></table></figure>
+<p>或是</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var time = new Date()</span><br><span class="line">time.getTime()</span><br></pre></td></tr></table></figure>
+
+<h2 id="取得某個時間"><a href="#取得某個時間" class="headerlink" title="取得某個時間"></a>取得某個時間</h2><p>如果想知道某年月日時間資訊可輸入</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">new Date(<span class="string">&#x27;年/月/日&#x27;</span>)</span><br><span class="line">time.getTime()</span><br></pre></td></tr></table></figure>
+<p>或是</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">new Date(<span class="string">&#x27;年-月-日&#x27;</span>) //舊瀏覽器可能不支援</span><br></pre></td></tr></table></figure>
+<p>得到結果如下</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">new Date(<span class="string">&#x27;2020/1/1&#x27;</span>)</span><br><span class="line">Wed Jan 01 2020 00:00:00 GMT+0800 (台北標準時間)</span><br></pre></td></tr></table></figure>
+
+<h2 id="UNIX-timestamp-轉換當下時間"><a href="#UNIX-timestamp-轉換當下時間" class="headerlink" title="UNIX timestamp 轉換當下時間"></a>UNIX timestamp 轉換當下時間</h2><p>也可以把 <code>UNIX timestamp</code> 秒數轉換當下時間，方法如下</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">new Date (UNIX 秒數)</span><br></pre></td></tr></table></figure>
+<p>結果如下</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">new Date(1516008367167) //傳入毫秒</span><br><span class="line">// Mon Jan 15 2018 17:26:07 GMT+0800 ( 台北標準時間 )</span><br></pre></td></tr></table></figure>
+
+<h2 id="UNIX-timestamp-轉換"><a href="#UNIX-timestamp-轉換" class="headerlink" title="UNIX timestamp 轉換"></a>UNIX timestamp 轉換</h2><h3 id="轉換日期"><a href="#轉換日期" class="headerlink" title="轉換日期"></a>轉換日期</h3><p>但因為一般 <code>timestamp</code> 取得的是秒數，但在 <code>JavaScript</code> 中要帶入的是毫秒<br>所以要 <code>new Date(timestamp * 1000)</code>：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">// 1513598707 為 timestamp</span><br><span class="line">new Date(1513598707*1000)          // 因為一般 timestamp 取得的是秒數，但要帶入的是毫秒，所以要乘 1000</span><br><span class="line"></span><br><span class="line">// 或者</span><br><span class="line">var date = new Date(timestamp * 1000)</span><br><span class="line">dataValues = [</span><br><span class="line">   date.getFullYear(),</span><br><span class="line">   date.getMonth()+1,</span><br><span class="line">   date.getDate(),</span><br><span class="line">   date.getHours(),</span><br><span class="line">   date.getMinutes(),</span><br><span class="line">   date.getSeconds(),</span><br><span class="line">];</span><br><span class="line">console.log(dataValues);</span><br></pre></td></tr></table></figure>
+<h3 id="轉換-timestamp"><a href="#轉換-timestamp" class="headerlink" title="轉換 timestamp"></a>轉換 timestamp</h3><p>同樣的要取得 <code>timestamp</code> ，也就是總秒數則除以 1000</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var dateTime = Date.now();</span><br><span class="line">var timestamp = Math.floor(dateTime / 1000);</span><br></pre></td></tr></table></figure>
+<p>或是</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var dateTime = new Date().getTime();</span><br><span class="line">var timestamp = Math.floor(dateTime / 1000);</span><br></pre></td></tr></table></figure>
+<h2 id="轉換成常見日期格式"><a href="#轉換成常見日期格式" class="headerlink" title="轉換成常見日期格式"></a>轉換成常見日期格式</h2><p>若要把之前取得的日期，如下</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Mon Dec 18 2017 20:05:07 GMT+0800 (台北標準時間)</span><br></pre></td></tr></table></figure>
+<p>改為 2017-12-18 這樣的格式<br>就要改為 ISO 8601 標準時間格式<br>可以使用 <code>Date.prototype.toISOString()</code></p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var a = new Date(<span class="string">&#x27;Mon Dec 18 2017 20:05:07 GMT+0800 (台北標準時間)&#x27;</span>)</span><br><span class="line">a.toISOString()</span><br></pre></td></tr></table></figure>
+<p>他會回傳下方內容</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2017-12-18T12:05:07.000Z</span><br></pre></td></tr></table></figure>
+<p>接著可用 <code>split()</code> 來分割日期和時間內容</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a.toISOString().split(<span class="string">&#x27;T&#x27;</span>)</span><br><span class="line">// 回傳陣列結果 [<span class="string">&quot;2017-12-18&quot;</span>, <span class="string">&quot;12:05:07.000Z&quot;</span>]</span><br></pre></td></tr></table></figure>
+<p>若只要取得日期就可用</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a.toISOString().split(<span class="string">&#x27;T&#x27;</span>)[0]</span><br><span class="line">//  [<span class="string">&quot;2017-12-18&quot;</span>]</span><br></pre></td></tr></table></figure>
+<p>以上可參考 <a target="_blank" rel="noopener" href="https://codepen.io/HexSchool_yuko/pen/VwwvZzG">Codepen 範例</a><br>上述內容也參考下方文章<br><a target="_blank" rel="noopener" href="https://pjchender.github.io/2017/12/27/js-javascript-date-time-method-%E6%97%A5%E6%9C%9F%E6%99%82%E9%96%93/">JavaScript Date Time Method 日期時間</a><br><a target="_blank" rel="noopener" href="https://www.jstips.co/zh_tw/javascript/extract-unix-timestamp-easily/">在 JavaScript 簡單取得 unix timestamp</a></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/blog/tags/JavaScript/" rel="tag"># JavaScript</a>
+              <a href="/blog/tags/HTML/" rel="tag"># HTML</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/blog/2020/10/27/JS-%E7%8D%B2%E5%8F%96%E5%AD%90%E7%AF%80%E9%BB%9E%E3%80%81%E7%88%B6%E7%AF%80%E9%BB%9E%E5%92%8C%E5%85%84%E5%BC%9F%E7%AF%80%E9%BB%9E%E7%9A%84%E5%B9%BE%E7%A8%AE%E6%96%B9%E5%BC%8F/" rel="prev" title="JS 獲取子節點、父節點和兄弟節點的幾種方式">
+                  <i class="fa fa-chevron-left"></i> JS 獲取子節點、父節點和兄弟節點的幾種方式
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+  
+  
+  
+
+
+
+      
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      
+
+      
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">yuski</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 強力驅動
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.0/lib/anime.min.js"></script>
+<script src="/blog/js/utils.js"></script><script src="/blog/js/motion.js"></script><script src="/blog/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
