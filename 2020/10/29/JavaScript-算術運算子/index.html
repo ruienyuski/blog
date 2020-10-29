@@ -22,21 +22,21 @@
     var CONFIG = {"hostname":"ruienyuski.github.io","root":"/blog/","scheme":"Pisces","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜尋...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}};
   </script>
 
-  <meta name="description" content="在判斷陣列為空時，會出現以下的問題點">
+  <meta name="description" content="紀錄 JavaScript 算術運算子內容">
 <meta property="og:type" content="article">
-<meta property="og:title" content="陣列為空的判斷">
-<meta property="og:url" content="https://ruienyuski.github.io/blog/2020/10/22/%E9%99%A3%E5%88%97%E7%82%BA%E7%A9%BA%E7%9A%84%E5%88%A4%E6%96%B7/index.html">
+<meta property="og:title" content="JavaScript 算術運算子">
+<meta property="og:url" content="https://ruienyuski.github.io/blog/2020/10/29/JavaScript-%E7%AE%97%E8%A1%93%E9%81%8B%E7%AE%97%E5%AD%90/index.html">
 <meta property="og:site_name" content="前端文章筆記">
-<meta property="og:description" content="在判斷陣列為空時，會出現以下的問題點">
+<meta property="og:description" content="紀錄 JavaScript 算術運算子內容">
 <meta property="og:locale" content="zh_TW">
-<meta property="article:published_time" content="2020-10-22T01:45:49.000Z">
-<meta property="article:modified_time" content="2020-10-22T02:16:52.035Z">
+<meta property="article:published_time" content="2020-10-29T02:42:37.000Z">
+<meta property="article:modified_time" content="2020-10-29T03:32:32.919Z">
 <meta property="article:author" content="yuski">
 <meta property="article:tag" content="JavaScript">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://ruienyuski.github.io/blog/2020/10/22/%E9%99%A3%E5%88%97%E7%82%BA%E7%A9%BA%E7%9A%84%E5%88%A4%E6%96%B7/">
+<link rel="canonical" href="https://ruienyuski.github.io/blog/2020/10/29/JavaScript-%E7%AE%97%E8%A1%93%E9%81%8B%E7%AE%97%E5%AD%90/">
 
 
 <script class="page-configurations">
@@ -49,7 +49,7 @@
   };
 </script>
 
-  <title>陣列為空的判斷 | 前端文章筆記</title>
+  <title>JavaScript 算術運算子 | 前端文章筆記</title>
   
 
 
@@ -160,7 +160,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目錄
@@ -172,6 +172,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8A%A0%E8%99%9F"><span class="nav-number">1.</span> <span class="nav-text">加號 (+)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B8%9B%E8%99%9F"><span class="nav-number">2.</span> <span class="nav-text">減號 (-)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B9%98%E8%99%9F"><span class="nav-number">3.</span> <span class="nav-text">乘號 (*)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%99%A4%E8%99%9F"><span class="nav-number">4.</span> <span class="nav-text">除號 (&#x2F;)</span></a></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -233,7 +234,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="https://ruienyuski.github.io/blog/2020/10/22/%E9%99%A3%E5%88%97%E7%82%BA%E7%A9%BA%E7%9A%84%E5%88%A4%E6%96%B7/">
+    <link itemprop="mainEntityOfPage" href="https://ruienyuski.github.io/blog/2020/10/29/JavaScript-%E7%AE%97%E8%A1%93%E9%81%8B%E7%AE%97%E5%AD%90/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/blog/images/avatar.gif">
@@ -249,7 +250,7 @@
     
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          陣列為空的判斷
+          JavaScript 算術運算子
         </h1>
 
         <div class="post-meta-container">
@@ -261,7 +262,7 @@
       <span class="post-meta-item-text">發表於</span>
       
 
-      <time title="創建時間：2020-10-22 09:45:49 / 修改時間：10:16:52" itemprop="dateCreated datePublished" datetime="2020-10-22T09:45:49+08:00">2020-10-22</time>
+      <time title="創建時間：2020-10-29 10:42:37 / 修改時間：11:32:32" itemprop="dateCreated datePublished" datetime="2020-10-29T10:42:37+08:00">2020-10-29</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -283,14 +284,30 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p>在判斷陣列為空時，會出現以下的問題點</p>
+        <p>紀錄 <code>JavaScript 算術運算子</code>內容</p>
 <a id="more"></a>
-<p>在做陣列為空的判斷，可能會有以下的寫法</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var a = [];</span><br><span class="line"><span class="keyword">if</span>(a == []) &#123;</span><br><span class="line">  console.log(<span class="string">&#x27;空的&#x27;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>但實際去運作時，卻沒任何反應，這是因為陣列屬於物件的型別<br>物件的型別在比對時都是比對他們的參考位置<br><code>a</code> 和 <code>[]</code> 去比對時，實際上是兩個參考位置是不一樣的，如下面的<br><code>a == []</code> 結果是 <code>false</code></p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">console.log(a == []); //<span class="literal">false</span></span><br></pre></td></tr></table></figure>
-<p>所以用 if 判斷結果是 false 自然是不會顯示內容<br>因此判斷資料長度建議是用 length</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var a = [];</span><br><span class="line"><span class="keyword">if</span>(a.length == 0) &#123;</span><br><span class="line">  console.log(<span class="string">&#x27;空的&#x27;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="加號"><a href="#加號" class="headerlink" title="加號 (+)"></a>加號 (+)</h2><p>若兩者都為 <code>Number</code> 則如同一般運算方式</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var total = 10 + 10; // 20</span><br></pre></td></tr></table></figure>
+<p>假若其中一項為字串，則相加結果會變成字串<br>也就是說，其中一項是字串，另一項會被「自動轉型」為字串後連在一起</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var total = 10 + <span class="string">&#x27;10&#x27;</span>; // 1010</span><br></pre></td></tr></table></figure>
+<p>若改為如下則結果還是字串內容<br>因為運算式的計算是「由左而右」且「先乘除後加減」的模式來運算。<br>所以前面的字串會先與 <code>a</code> 相加，再把結果與 <code>b</code> 做相加。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var a = 5;</span><br><span class="line">var b = 5;</span><br><span class="line">var total = <span class="string">&quot;5 加 5 等於 &quot;</span> + a + b; // 5 加 5 等於 55</span><br></pre></td></tr></table></figure>
+<p>為避免這樣的情況，需要用小括號包起 <code>a + b</code> 就可以得到正確的結果</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var a = 5;</span><br><span class="line">var b = 5;</span><br><span class="line">var total = <span class="string">&quot;5 加 5 等於 &quot;</span> + (a + b); // 5 加 5 等於 10</span><br></pre></td></tr></table></figure>
+
+<h2 id="減號"><a href="#減號" class="headerlink" title="減號 (-)"></a>減號 (-)</h2><p>與加號不同，其中一項為字串時會先將數值轉為「數字」，再進行減法運算。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var total = 50 - <span class="string">&#x27;10&#x27;</span>; // 40</span><br></pre></td></tr></table></figure>
+<p>但如果碰到 <code>boolean</code> 也會轉型為「數字」，再進行運算。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">100 - <span class="literal">true</span> // 99</span><br><span class="line">100 - <span class="literal">false</span> //100</span><br></pre></td></tr></table></figure>
+<p>也就是做減法運算時，若其中一方屬於基本型別且不是數字的情況，那麼 <code>JavaScript</code> 會在先在背後透過 <code>Number()</code> 嘗試將數值轉為「數字」，再進行運算。</p>
+<h2 id="乘號"><a href="#乘號" class="headerlink" title="乘號 (*)"></a>乘號 (*)</h2><p>乘號在碰到其中一項不是 <code>Number</code> 的話，那麼 <code>JavaScript</code> 就會先在背後以 <code>Nubmer()</code> 作轉換後再進行計算</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">100 * <span class="string">&quot;10&quot;</span>      // 1000</span><br><span class="line">100 * abc       // NaN</span><br><span class="line"></span><br><span class="line">100 * <span class="literal">true</span>      // 100</span><br><span class="line">100 * <span class="literal">false</span>     // 0</span><br><span class="line"></span><br><span class="line">100 * &#123;&#125;        // NaN</span><br></pre></td></tr></table></figure>
+<h2 id="除號"><a href="#除號" class="headerlink" title="除號 (/)"></a>除號 (/)</h2><p>除法與乘法的規則類似。<br>也都是碰到其中一項不是 <code>Number</code> 的話就轉型為 <code>Number</code> 再進行運算<br>但是，在除數為 <code>0</code> 的情況下：</p>
+<p>被除數為正數，則結果為 <code>Infinity</code><br>被除數為負數，則結果為 <code>-Infinity</code><br>被除數為 <code>0</code>，則結果為 <code>NaN</code><br>當然，如果有其中一個是 <code>NaN</code>，則結果也會是 <code>NaN</code> 。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">100 / 0      // Infinity</span><br><span class="line">-100 / 0     // -Infinity</span><br><span class="line">0 / 0        // NaN</span><br><span class="line">NaN / 0      // NaN</span><br></pre></td></tr></table></figure>
+
+<p>以上內容均參考<a target="_blank" rel="noopener" href="https://ithelp.ithome.com.tw/articles/10191180">重新認識 JavaScript: Day 06 運算式與運算子</a></p>
+
     </div>
 
     
@@ -306,14 +323,11 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/blog/2020/10/21/onclick&addEventListener/" rel="prev" title="onclick 和 addEventListener 綁定事件">
-                  <i class="fa fa-chevron-left"></i> onclick 和 addEventListener 綁定事件
+                <a href="/blog/2020/10/28/timestamp/" rel="prev" title="UNIX timestamp 整理">
+                  <i class="fa fa-chevron-left"></i> UNIX timestamp 整理
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/blog/2020/10/23/dataset/" rel="next" title="dataset">
-                  dataset <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
     </footer>
