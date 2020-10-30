@@ -22,22 +22,30 @@
     var CONFIG = {"hostname":"ruienyuski.github.io","root":"/blog/","scheme":"Pisces","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜尋...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}};
   </script>
 
-  <meta name="description" content="這邊紀錄物件取值和新增、刪除用法">
+  <meta name="description" content="event.target 相關內容整理">
 <meta property="og:type" content="article">
-<meta property="og:title" content="物件取值、新增、刪除">
-<meta property="og:url" content="https://ruienyuski.github.io/blog/2020/09/21/%E7%89%A9%E4%BB%B6%E5%8F%96%E5%80%BC%E3%80%81%E6%96%B0%E5%A2%9E%E3%80%81%E5%88%AA%E9%99%A4/index.html">
+<meta property="og:title" content="event.target">
+<meta property="og:url" content="https://ruienyuski.github.io/blog/2020/10/30/event-target/index.html">
 <meta property="og:site_name" content="前端文章筆記">
-<meta property="og:description" content="這邊紀錄物件取值和新增、刪除用法">
+<meta property="og:description" content="event.target 相關內容整理">
 <meta property="og:locale" content="zh_TW">
-<meta property="article:published_time" content="2020-09-21T14:56:08.000Z">
-<meta property="article:modified_time" content="2020-09-21T15:24:19.125Z">
+<meta property="og:image" content="https://ruienyuski.github.io/photo/hexo_img/20201030_event_target/event_target-1.png">
+<meta property="og:image" content="https://ruienyuski.github.io/photo/hexo_img/20201030_event_target/event_target-2.png">
+<meta property="og:image" content="https://ruienyuski.github.io/photo/hexo_img/20201030_event_target/event_target-3.png">
+<meta property="og:image" content="https://ruienyuski.github.io/photo/hexo_img/20201030_event_target/event_target-4.png">
+<meta property="og:image" content="https://ruienyuski.github.io/photo/hexo_img/20201030_event_target/event_target-5.png">
+<meta property="og:image" content="https://ruienyuski.github.io/photo/hexo_img/20201030_event_target/event_target-6.png">
+<meta property="og:image" content="https://ruienyuski.github.io/photo/hexo_img/20201030_event_target/event_target-6.png">
+<meta property="article:published_time" content="2020-10-30T02:10:51.000Z">
+<meta property="article:modified_time" content="2020-10-30T03:00:24.717Z">
 <meta property="article:author" content="yuski">
 <meta property="article:tag" content="JavaScript">
 <meta property="article:tag" content="HTML">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://ruienyuski.github.io/photo/hexo_img/20201030_event_target/event_target-1.png">
 
 
-<link rel="canonical" href="https://ruienyuski.github.io/blog/2020/09/21/%E7%89%A9%E4%BB%B6%E5%8F%96%E5%80%BC%E3%80%81%E6%96%B0%E5%A2%9E%E3%80%81%E5%88%AA%E9%99%A4/">
+<link rel="canonical" href="https://ruienyuski.github.io/blog/2020/10/30/event-target/">
 
 
 <script class="page-configurations">
@@ -50,7 +58,7 @@
   };
 </script>
 
-  <title>物件取值、新增、刪除 | 前端文章筆記</title>
+  <title>event.target | 前端文章筆記</title>
   
 
 
@@ -173,7 +181,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%89%A9%E4%BB%B6%E5%8F%96%E5%80%BC"><span class="nav-number">1.</span> <span class="nav-text">物件取值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%B0%E5%A2%9E"><span class="nav-number">2.</span> <span class="nav-text">新增</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%AA%E9%99%A4"><span class="nav-number">3.</span> <span class="nav-text">刪除</span></a></li></ol></div>
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#event-%E7%B0%A1%E4%BB%8B"><span class="nav-number">1.</span> <span class="nav-text">event 簡介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#event-target"><span class="nav-number">2.</span> <span class="nav-text">event.target</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8D%E7%94%A8%E5%8F%83%E6%95%B8-e-%E8%88%87%E7%9B%B4%E6%8E%A5%E4%BD%BF%E7%94%A8-event-%E5%B7%AE%E7%95%B0"><span class="nav-number">3.</span> <span class="nav-text">不用參數 e 與直接使用 event 差異</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#event-target-%E8%88%87-this-%E5%B7%AE%E7%95%B0"><span class="nav-number">4.</span> <span class="nav-text">event.target 與 this 差異</span></a></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -235,7 +243,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="https://ruienyuski.github.io/blog/2020/09/21/%E7%89%A9%E4%BB%B6%E5%8F%96%E5%80%BC%E3%80%81%E6%96%B0%E5%A2%9E%E3%80%81%E5%88%AA%E9%99%A4/">
+    <link itemprop="mainEntityOfPage" href="https://ruienyuski.github.io/blog/2020/10/30/event-target/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/blog/images/avatar.gif">
@@ -251,7 +259,7 @@
     
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          物件取值、新增、刪除
+          event.target
         </h1>
 
         <div class="post-meta-container">
@@ -263,7 +271,7 @@
       <span class="post-meta-item-text">發表於</span>
       
 
-      <time title="創建時間：2020-09-21 22:56:08 / 修改時間：23:24:19" itemprop="dateCreated datePublished" datetime="2020-09-21T22:56:08+08:00">2020-09-21</time>
+      <time title="創建時間：2020-10-30 10:10:51 / 修改時間：11:00:24" itemprop="dateCreated datePublished" datetime="2020-10-30T10:10:51+08:00">2020-10-30</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -285,21 +293,22 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p>這邊紀錄物件取值和新增、刪除用法</p>
+        <p><code>event.target</code> 相關內容整理</p>
 <a id="more"></a>
-<h2 id="物件取值"><a href="#物件取值" class="headerlink" title="物件取值"></a>物件取值</h2><p>物件取值有兩種方法，一個是用「.」，另一個是用 <code>[ ]</code><br>1.使用「.」來取值</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var a = &#123;</span><br><span class="line">  item:10</span><br><span class="line">&#125;;</span><br><span class="line">console.log(a.item);//10</span><br></pre></td></tr></table></figure>
-<p>2.使用 <code>[ ]</code>，在物件變數後面加上 [ ] 裡面插入要取得值的字串</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var a = &#123;</span><br><span class="line">  item:10</span><br><span class="line">&#125;;</span><br><span class="line">console.log(a[<span class="string">&#x27;item&#x27;</span>]);//10</span><br></pre></td></tr></table></figure>
-<p>使用 <code>[ ]</code> 不僅可用字串取值，他還可用變數的方式來取值</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var a = &#123;</span><br><span class="line">  item:100</span><br><span class="line">&#125;;</span><br><span class="line">var b = <span class="string">&#x27;item&#x27;</span>;</span><br><span class="line">console.log(a[b]); //100</span><br></pre></td></tr></table></figure>
-<p>陣列也屬於物件型別的其中一種<br>陣列取值若遇到小數點、中文或是特殊字元<br>可用 <code>[ ]</code> 來取值，像是 <code>PM2.5</code> 建議改用 <code>[&quot;PM2.5&quot;]</code><br><code>data[i][&quot;PM2.5&quot;]</code><br><code>data[i][&quot;縣市&quot;]</code></p>
-<h2 id="新增"><a href="#新增" class="headerlink" title="新增"></a>新增</h2><p>與取值一樣，用「.」也可用 <code>[ ]</code> 來增加屬性</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">var a = &#123;</span><br><span class="line">  item: <span class="string">&#x27;項目 1&#x27;</span></span><br><span class="line">&#125;;</span><br><span class="line">a.title = <span class="string">&#x27;標題 a&#x27;</span>;</span><br><span class="line">a[<span class="string">&#x27;num&#x27;</span>] = 100;</span><br><span class="line">console.log(a);</span><br><span class="line">//Object &#123;</span><br><span class="line">  item: <span class="string">&quot;項目 1&quot;</span>,</span><br><span class="line">  num: 100,</span><br><span class="line">  title: <span class="string">&quot;標題 a&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="刪除"><a href="#刪除" class="headerlink" title="刪除"></a>刪除</h2><p>可用 <code>delete</code> 這個操作符並用「.」接著後方加入物件名稱和屬性名稱</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">var a = &#123;</span><br><span class="line">  item: <span class="string">&#x27;項目 1&#x27;</span></span><br><span class="line">&#125;;</span><br><span class="line">a.title = <span class="string">&#x27;標題 a&#x27;</span>;</span><br><span class="line">a[<span class="string">&#x27;num&#x27;</span>] = 100;</span><br><span class="line">delete a.item;</span><br><span class="line">console.log(a);</span><br><span class="line">//Object &#123;</span><br><span class="line">  num: 100,</span><br><span class="line">  title: <span class="string">&quot;標題 a&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>也可用 <code>[ ]</code> 來刪除</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">var a = &#123;</span><br><span class="line">  item: <span class="string">&#x27;項目 1&#x27;</span>,</span><br><span class="line">  item2: <span class="string">&#x27;項目 2&#x27;</span>,</span><br><span class="line">&#125;;</span><br><span class="line">a.title = <span class="string">&#x27;標題 a&#x27;</span>;</span><br><span class="line">a[<span class="string">&#x27;num&#x27;</span>] = 100;</span><br><span class="line">delete a[<span class="string">&#x27;item2&#x27;</span>];</span><br><span class="line">console.log(a);</span><br><span class="line">//Object &#123;</span><br><span class="line">  item: <span class="string">&quot;項目 1&quot;</span>,</span><br><span class="line">  num: 100,</span><br><span class="line">  title: <span class="string">&quot;標題 a&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="event-簡介"><a href="#event-簡介" class="headerlink" title="event 簡介"></a>event 簡介</h2><p><code>function</code> 小括號裡面帶入隨意參數 <code>a</code>，若用按鈕觸發這個 <code>function</code> 則會取得<br><code>MouseEvent</code>，如下圖<br><img src="https://ruienyuski.github.io/photo/hexo_img/20201030_event_target/event_target-1.png"></p>
+<p><code>MouseEvent</code> 點開後可看到各種資訊，像是 <code>clineX</code>、<code>clineY</code>，如下圖<br><img src="https://ruienyuski.github.io/photo/hexo_img/20201030_event_target/event_target-2.png"></p>
+<h2 id="event-target"><a href="#event-target" class="headerlink" title="event.target"></a>event.target</h2><p>往下會看到 <code>target</code> 的屬性，裡面有 <code>innerHTML</code> 和 <code>innerText</code><br><img src="https://ruienyuski.github.io/photo/hexo_img/20201030_event_target/event_target-3.png"><br><img src="https://ruienyuski.github.io/photo/hexo_img/20201030_event_target/event_target-4.png"></p>
+<p>可以將 <code>function</code> 裡面用  <code>a.target.innerHTML = &#39;BTN&#39;</code> 來變更按鈕上的文字<br><img src="https://ruienyuski.github.io/photo/hexo_img/20201030_event_target/event_target-5.png"></p>
+<p>若是在 <code>button</code> 裡面增加 <code>value</code> 屬性，使用 <code>event.target.value</code> 就可以取得其值<br><img src="https://ruienyuski.github.io/photo/hexo_img/20201030_event_target/event_target-6.png"></p>
+<p>但剛取名的參數建議改用 <code>e</code> 或是 <code>event</code> 可以較明白這個參數是為了取得 <code>event</code> 事件內容</p>
+<h2 id="不用參數-e-與直接使用-event-差異"><a href="#不用參數-e-與直接使用-event-差異" class="headerlink" title="不用參數 e 與直接使用 event 差異"></a>不用參數 e 與直接使用 event 差異</h2><p>若不用參數也是可以直接使用 <code>event</code> ，如圖<br><img src="https://ruienyuski.github.io/photo/hexo_img/20201030_event_target/event_target-6.png"></p>
+<p>但也會因為如此可讀性就較差，因為明明沒宣告任何值，就突然冒出一個可用的 <code>event</code> 值，閱讀直覺相對來說就比較差。</p>
+<p>所以基於可讀性來說，建議還是要自訂傳入參數名稱</p>
+<h2 id="event-target-與-this-差異"><a href="#event-target-與-this-差異" class="headerlink" title="event.target 與 this 差異"></a>event.target 與 this 差異</h2><p>而另外 <code>event.target</code> 也與 <code>this</code> 用法也有所差異</p>
+<blockquote>
+<p>event.target 指的是當下滑鼠事件的目標<br>this 會指向綁定這個事件的元素</p>
+</blockquote>
+
     </div>
 
     
@@ -316,14 +325,11 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/blog/2020/09/21/null-string-empty/" rel="prev" title="「null」與「空字串」的差別">
-                  <i class="fa fa-chevron-left"></i> 「null」與「空字串」的差別
+                <a href="/blog/2020/10/29/JavaScript-%E7%AE%97%E8%A1%93%E9%81%8B%E7%AE%97%E5%AD%90/" rel="prev" title="JavaScript 算術運算子">
+                  <i class="fa fa-chevron-left"></i> JavaScript 算術運算子
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/blog/2020/10/12/for-loop/" rel="next" title="for 迴圈">
-                  for 迴圈 <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
     </footer>
