@@ -40,7 +40,7 @@
 <meta property="og:image" content="https://ruienyuski.github.io/photo/hexo_img/20201031_this/this-27.png">
 <meta property="og:image" content="https://ruienyuski.github.io/photo/hexo_img/20201031_this/this-24.png">
 <meta property="article:published_time" content="2020-10-31T12:24:56.000Z">
-<meta property="article:modified_time" content="2020-10-31T13:46:02.269Z">
+<meta property="article:modified_time" content="2020-10-31T13:50:44.459Z">
 <meta property="article:author" content="yuski">
 <meta property="article:tag" content="JavaScript">
 <meta name="twitter:card" content="summary">
@@ -273,7 +273,7 @@
       <span class="post-meta-item-text">發表於</span>
       
 
-      <time title="創建時間：2020-10-31 20:24:56 / 修改時間：21:46:02" itemprop="dateCreated datePublished" datetime="2020-10-31T20:24:56+08:00">2020-10-31</time>
+      <time title="創建時間：2020-10-31 20:24:56 / 修改時間：21:50:44" itemprop="dateCreated datePublished" datetime="2020-10-31T20:24:56+08:00">2020-10-31</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -321,7 +321,7 @@
 <p>點擊畫面的文字內容後，<code>console</code> 就顯示點擊的位置<br>也就是 <code>console.log(this)</code> 指的是 <code>el</code> 這個 <code>DOM 元素</code></p>
 <p><img src="https://ruienyuski.github.io/photo/hexo_img/20201031_this/this-32.png"></p>
 <p>改為「箭頭函式」，存檔後一樣點文字，會發現他指向 <code>Window</code><br><img src="https://ruienyuski.github.io/photo/hexo_img/20201031_this/this-33.png"></p>
-<p>因為「箭頭函式」沒有屬於他自己的 <code>this</code> 所以改為「箭頭函式」，他的 <code>this</code> 就會指向全域<br>也因為「箭頭函式」沒有自己的 <code>this</code> 當然也無法透過 <code>call</code>、<code>apply</code>、<code>bind</code> 的方式重新給予 <code>this</code><br>此為「箭頭函式」指向是不一樣的，所以也他無法作為建構函式使用</p>
+<p>因為「箭頭函式」沒有屬於他自己的 <code>this</code> 所以改為「箭頭函式」，他的 <code>this</code> 就會指向全域<br>也因為「箭頭函式」沒有自己的 <code>this</code> 當然也無法透過 <code>call</code>、<code>apply</code>、<code>bind</code> 的方式重新給予 <code>this</code><br>此為「箭頭函式」指向是不一樣的，所以也無法作為建構函式使用</p>
 <h2 id="Vue-js-this-的指向"><a href="#Vue-js-this-的指向" class="headerlink" title="Vue.js this 的指向"></a>Vue.js this 的指向</h2><p>如同六角學院講師 卡斯伯所寫的<a target="_blank" rel="noopener" href="https://wcc723.github.io/javascript/2019/03/18/JS-THIS/">文章</a>提到：</p>
 <blockquote>
 <p><code>Vue</code> 實際運作時，元件內的物件、函式等等均會被向上拉，<code>methods</code>, <code>computed</code> 等等均不會存在，所以並非以原始碼而是以實際運行的狀態為主<br><code>methods</code> 內的 <code>function</code> 及 <code>data</code> 內的內容均在元件物件頂層。<br>元件下的函式的 <code>this</code> 就會直接指向該元件，所以 <code>methods</code> 內的 <code>function</code> 的 <code>this</code> 自然就能夠使用元件內的 <code>text</code> 資料。</p>
