@@ -35,12 +35,12 @@
 <meta property="og:image" content="https://ruienyuski.github.io/photo/hexo_img/20201031_this/this-31.png">
 <meta property="og:image" content="https://ruienyuski.github.io/photo/hexo_img/20201031_this/this-32.png">
 <meta property="og:image" content="https://ruienyuski.github.io/photo/hexo_img/20201031_this/this-33.png">
-<meta property="og:image" content="https://ruienyuski.github.io/photo/hexo_img/20201031_this/this-25.png">
+<meta property="og:image" content="https://ruienyuski.github.io/photo/hexo_img/20201031_this/this-24.png">
 <meta property="og:image" content="https://ruienyuski.github.io/photo/hexo_img/20201031_this/this-26.png">
 <meta property="og:image" content="https://ruienyuski.github.io/photo/hexo_img/20201031_this/this-27.png">
-<meta property="og:image" content="https://ruienyuski.github.io/photo/hexo_img/20201031_this/this-24.png">
+<meta property="og:image" content="https://ruienyuski.github.io/photo/hexo_img/20201031_this/this-25.png">
 <meta property="article:published_time" content="2020-10-31T12:24:56.000Z">
-<meta property="article:modified_time" content="2020-10-31T13:50:44.459Z">
+<meta property="article:modified_time" content="2020-10-31T13:53:20.609Z">
 <meta property="article:author" content="yuski">
 <meta property="article:tag" content="JavaScript">
 <meta name="twitter:card" content="summary">
@@ -273,7 +273,7 @@
       <span class="post-meta-item-text">發表於</span>
       
 
-      <time title="創建時間：2020-10-31 20:24:56 / 修改時間：21:50:44" itemprop="dateCreated datePublished" datetime="2020-10-31T20:24:56+08:00">2020-10-31</time>
+      <time title="創建時間：2020-10-31 20:24:56 / 修改時間：21:53:20" itemprop="dateCreated datePublished" datetime="2020-10-31T20:24:56+08:00">2020-10-31</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -328,12 +328,12 @@
 </blockquote>
 <p>但若是 <code>method</code> 或是 <code>computed</code> 裡面的 <code>function</code> 有使用其他 <code>function</code> 需注意 <code>this</code> 指向</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=<span class="string">&quot;app&quot;</span>&gt;</span><br><span class="line">  &lt;div v-for=<span class="string">&quot; item in filterArray&quot;</span>&gt; &#123;&#123;item.name&#125;&#125;&lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">var app = new Vue(&#123;</span><br><span class="line">  el: <span class="string">&#x27;#app&#x27;</span>,</span><br><span class="line">  data: &#123;</span><br><span class="line">    arrayData: [</span><br><span class="line">      &#123;</span><br><span class="line">        name: <span class="string">&#x27;小明&#x27;</span>,</span><br><span class="line">        age: 16</span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        name: <span class="string">&#x27;漂亮阿姨&#x27;</span>,</span><br><span class="line">        age: 24</span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        name: <span class="string">&#x27;杰倫&#x27;</span>,</span><br><span class="line">        age: 20</span><br><span class="line">      &#125;</span><br><span class="line">    ],</span><br><span class="line">    filterText: <span class="string">&#x27;杰倫&#x27;</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">  computed: &#123;</span><br><span class="line">    filterArray: <span class="function"><span class="title">function</span></span> ()&#123;</span><br><span class="line">      <span class="comment"># var vm = this;</span></span><br><span class="line">      <span class="built_in">return</span> this.arrayData.filter(<span class="keyword">function</span>(item)&#123;</span><br><span class="line">        <span class="built_in">return</span> item.name.match(this.filterText)</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<p>結果如圖<br><img src="https://ruienyuski.github.io/photo/hexo_img/20201031_this/this-25.png"></p>
+<p>結果如圖<br><img src="https://ruienyuski.github.io/photo/hexo_img/20201031_this/this-24.png"></p>
 <p>這是因為原本的 <code>this</code> 指的是 <code>Vue</code> 這個物件，在經過 <code>filter</code> 後，此時的 <code>this</code> 已<br>經不是一開始的 <code>this</code>，而是 <code>Window</code> </p>
 <p>如下圖在 <code>filter</code> 用 <code>console.log(this)</code> 就可看到指向 <code>Window</code></p>
 <p><img src="https://ruienyuski.github.io/photo/hexo_img/20201031_this/this-26.png"></p>
 <p>若改用 <code>console.log(vm)</code> 則指向 <code>Vue</code><br><img src="https://ruienyuski.github.io/photo/hexo_img/20201031_this/this-27.png"></p>
-<p>而且也能正確顯示資料<br><img src="https://ruienyuski.github.io/photo/hexo_img/20201031_this/this-24.png"></p>
+<p>而且也能正確顯示資料<br><img src="https://ruienyuski.github.io/photo/hexo_img/20201031_this/this-25.png"></p>
 
     </div>
 
