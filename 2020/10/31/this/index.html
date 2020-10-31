@@ -34,7 +34,7 @@
 <meta property="og:image" content="https://ruienyuski.github.io/photo/hexo_img/20201031_this/this-3.png">
 <meta property="og:image" content="https://ruienyuski.github.io/photo/hexo_img/20201031_this/this-4.png">
 <meta property="article:published_time" content="2020-10-31T05:28:32.000Z">
-<meta property="article:modified_time" content="2020-10-31T11:03:55.537Z">
+<meta property="article:modified_time" content="2020-10-31T11:09:57.773Z">
 <meta property="article:author" content="yuski">
 <meta property="article:tag" content="JavaScript">
 <meta name="twitter:card" content="summary">
@@ -267,7 +267,7 @@
       <span class="post-meta-item-text">發表於</span>
       
 
-      <time title="創建時間：2020-10-31 13:28:32 / 修改時間：19:03:55" itemprop="dateCreated datePublished" datetime="2020-10-31T13:28:32+08:00">2020-10-31</time>
+      <time title="創建時間：2020-10-31 13:28:32 / 修改時間：19:09:57" itemprop="dateCreated datePublished" datetime="2020-10-31T13:28:32+08:00">2020-10-31</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -293,7 +293,7 @@
 <a id="more"></a>
 <h2 id="this-簡介"><a href="#this-簡介" class="headerlink" title="this 簡介"></a>this 簡介</h2><p>不管是在全域的環境下，或是在特定的函式，都可調用 <code>this</code> 這個關鍵字<br>那麼 <code>this</code> 因為在每個執行環境都存在，所以 <code>this</code> 很容易被誤認為指向函式<br>函式本身這個物件所能提供的屬性非常有限，通常來說不會使用函式調用 <code>this</code> 本身<br><code>this</code>  通常是指向可以被運用的物件，所以不要誤認為函式中的 <code>this</code> 就指向該函式</p>
 <p><code>this</code> 是在執行函式時候就自然產生，不需要去宣告他，他是個關鍵字<br>如下圖 <code>Chrome</code> 的 <code>Source</code> 按下 <code>debug</code> 工具，按下圖中的按鈕<br><img src="https://ruienyuski.github.io/photo/hexo_img/20201031_this/this-1.png"></p>
-<p>重整之後來進入這個函式的執行堆疊，在連續兩次按下圖片上的按鈕<br><img src="https://ruienyuski.github.io/photo/hexo_img/20201031_this/this-2.png"><br><img src="https://ruienyuski.github.io/photo/hexo_img/20201031_this/this-3.png"><br>接下來會發現，<code>Local</code> 會自動帶上 <code>this</code><br><img src="https://ruienyuski.github.io/photo/hexo_img/20201031_this/this-4.png"><br>而這個 <code>this</code> 目前是指向 <code>window</code> 而這個 <code>this</code> 他實際指向跟我們如何去呼叫這個函式有很大的關連性</p>
+<p>重整之後來進入這個函式的執行堆疊<br><img src="https://ruienyuski.github.io/photo/hexo_img/20201031_this/this-2.png"><br>並連續兩次按下圖片上的按鈕<br><img src="https://ruienyuski.github.io/photo/hexo_img/20201031_this/this-3.png"><br>接下來會發現，<code>Local</code> 會自動帶上 <code>this</code><br><img src="https://ruienyuski.github.io/photo/hexo_img/20201031_this/this-4.png"><br>而這個 <code>this</code> 目前是指向 <code>window</code> 而這個 <code>this</code> 他實際指向跟我們如何去呼叫這個函式有很大的關連性</p>
 <h2 id="this-基本觀念"><a href="#this-基本觀念" class="headerlink" title="this 基本觀念"></a>this 基本觀念</h2><ul>
 <li>每個執行環境都有屬於自己的 <code>this</code> 關鍵字</li>
 <li><code>this</code> 與函式如何宣告<strong>沒有關聯性</strong>，僅與呼叫方式有關</li>
