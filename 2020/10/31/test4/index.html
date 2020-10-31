@@ -22,22 +22,27 @@
     var CONFIG = {"hostname":"ruienyuski.github.io","root":"/blog/","scheme":"Pisces","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜尋...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}};
   </script>
 
-  <meta name="description" content="這邊紀錄物件取值和新增、刪除用法">
+  <meta name="description" content="this 調用方式：「new」和「DOM 事件處理器」內容">
 <meta property="og:type" content="article">
-<meta property="og:title" content="物件取值、新增、刪除">
-<meta property="og:url" content="https://ruienyuski.github.io/blog/2020/09/21/%E7%89%A9%E4%BB%B6%E5%8F%96%E5%80%BC%E3%80%81%E6%96%B0%E5%A2%9E%E3%80%81%E5%88%AA%E9%99%A4/index.html">
+<meta property="og:title" content="this 調用方式 (3)">
+<meta property="og:url" content="https://ruienyuski.github.io/blog/2020/10/31/test4/index.html">
 <meta property="og:site_name" content="前端文章筆記">
-<meta property="og:description" content="這邊紀錄物件取值和新增、刪除用法">
+<meta property="og:description" content="this 調用方式：「new」和「DOM 事件處理器」內容">
 <meta property="og:locale" content="zh_TW">
-<meta property="article:published_time" content="2020-09-21T14:56:08.000Z">
-<meta property="article:modified_time" content="2020-09-21T15:24:19.125Z">
+<meta property="og:image" content="https://ruienyuski.github.io/photo/hexo_img/20201031_this/this-19.png">
+<meta property="og:image" content="https://ruienyuski.github.io/photo/hexo_img/20201031_this/this-20.png">
+<meta property="og:image" content="https://ruienyuski.github.io/photo/hexo_img/20201031_this/this-21.png">
+<meta property="og:image" content="https://ruienyuski.github.io/photo/hexo_img/20201031_this/this-22.png">
+<meta property="og:image" content="https://ruienyuski.github.io/photo/hexo_img/20201031_this/this-23.png">
+<meta property="article:published_time" content="2020-10-31T10:05:59.000Z">
+<meta property="article:modified_time" content="2020-10-31T11:06:04.542Z">
 <meta property="article:author" content="yuski">
 <meta property="article:tag" content="JavaScript">
-<meta property="article:tag" content="HTML">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://ruienyuski.github.io/photo/hexo_img/20201031_this/this-19.png">
 
 
-<link rel="canonical" href="https://ruienyuski.github.io/blog/2020/09/21/%E7%89%A9%E4%BB%B6%E5%8F%96%E5%80%BC%E3%80%81%E6%96%B0%E5%A2%9E%E3%80%81%E5%88%AA%E9%99%A4/">
+<link rel="canonical" href="https://ruienyuski.github.io/blog/2020/10/31/test4/">
 
 
 <script class="page-configurations">
@@ -50,7 +55,7 @@
   };
 </script>
 
-  <title>物件取值、新增、刪除 | 前端文章筆記</title>
+  <title>this 調用方式 (3) | 前端文章筆記</title>
   
 
 
@@ -173,7 +178,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%89%A9%E4%BB%B6%E5%8F%96%E5%80%BC"><span class="nav-number">1.</span> <span class="nav-text">物件取值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%B0%E5%A2%9E"><span class="nav-number">2.</span> <span class="nav-text">新增</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%AA%E9%99%A4"><span class="nav-number">3.</span> <span class="nav-text">刪除</span></a></li></ol></div>
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#new"><span class="nav-number">1.</span> <span class="nav-text">new</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DOM-%E4%BA%8B%E4%BB%B6%E8%99%95%E7%90%86%E5%99%A8"><span class="nav-number">2.</span> <span class="nav-text">DOM 事件處理器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8A%8A%E6%96%B9%E6%B3%95%E5%AF%AB%E5%9C%A8%E5%85%83%E7%B4%A0%E4%B8%8A%E9%9D%A2"><span class="nav-number">2.1.</span> <span class="nav-text">把方法寫在元素上面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9B%A3%E8%81%BD%E5%99%A8"><span class="nav-number">2.2.</span> <span class="nav-text">監聽器</span></a></li></ol></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -235,7 +240,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="https://ruienyuski.github.io/blog/2020/09/21/%E7%89%A9%E4%BB%B6%E5%8F%96%E5%80%BC%E3%80%81%E6%96%B0%E5%A2%9E%E3%80%81%E5%88%AA%E9%99%A4/">
+    <link itemprop="mainEntityOfPage" href="https://ruienyuski.github.io/blog/2020/10/31/test4/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/blog/images/avatar.gif">
@@ -251,7 +256,7 @@
     
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          物件取值、新增、刪除
+          this 調用方式 (3)
         </h1>
 
         <div class="post-meta-container">
@@ -263,7 +268,7 @@
       <span class="post-meta-item-text">發表於</span>
       
 
-      <time title="創建時間：2020-09-21 22:56:08 / 修改時間：23:24:19" itemprop="dateCreated datePublished" datetime="2020-09-21T22:56:08+08:00">2020-09-21</time>
+      <time title="創建時間：2020-10-31 18:05:59 / 修改時間：19:06:04" itemprop="dateCreated datePublished" datetime="2020-10-31T18:05:59+08:00">2020-10-31</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -285,21 +290,26 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p>這邊紀錄物件取值和新增、刪除用法</p>
+        <p><code>this</code> 調用方式：<br>「<code>new</code>」和「<code>DOM</code> 事件處理器」內容</p>
 <a id="more"></a>
-<h2 id="物件取值"><a href="#物件取值" class="headerlink" title="物件取值"></a>物件取值</h2><p>物件取值有兩種方法，一個是用「.」，另一個是用 <code>[ ]</code><br>1.使用「.」來取值</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var a = &#123;</span><br><span class="line">  item:10</span><br><span class="line">&#125;;</span><br><span class="line">console.log(a.item);//10</span><br></pre></td></tr></table></figure>
-<p>2.使用 <code>[ ]</code>，在物件變數後面加上 [ ] 裡面插入要取得值的字串</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var a = &#123;</span><br><span class="line">  item:10</span><br><span class="line">&#125;;</span><br><span class="line">console.log(a[<span class="string">&#x27;item&#x27;</span>]);//10</span><br></pre></td></tr></table></figure>
-<p>使用 <code>[ ]</code> 不僅可用字串取值，他還可用變數的方式來取值</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var a = &#123;</span><br><span class="line">  item:100</span><br><span class="line">&#125;;</span><br><span class="line">var b = <span class="string">&#x27;item&#x27;</span>;</span><br><span class="line">console.log(a[b]); //100</span><br></pre></td></tr></table></figure>
-<p>陣列也屬於物件型別的其中一種<br>陣列取值若遇到小數點、中文或是特殊字元<br>可用 <code>[ ]</code> 來取值，像是 <code>PM2.5</code> 建議改用 <code>[&quot;PM2.5&quot;]</code><br><code>data[i][&quot;PM2.5&quot;]</code><br><code>data[i][&quot;縣市&quot;]</code></p>
-<h2 id="新增"><a href="#新增" class="headerlink" title="新增"></a>新增</h2><p>與取值一樣，用「.」也可用 <code>[ ]</code> 來增加屬性</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">var a = &#123;</span><br><span class="line">  item: <span class="string">&#x27;項目 1&#x27;</span></span><br><span class="line">&#125;;</span><br><span class="line">a.title = <span class="string">&#x27;標題 a&#x27;</span>;</span><br><span class="line">a[<span class="string">&#x27;num&#x27;</span>] = 100;</span><br><span class="line">console.log(a);</span><br><span class="line">//Object &#123;</span><br><span class="line">  item: <span class="string">&quot;項目 1&quot;</span>,</span><br><span class="line">  num: 100,</span><br><span class="line">  title: <span class="string">&quot;標題 a&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="刪除"><a href="#刪除" class="headerlink" title="刪除"></a>刪除</h2><p>可用 <code>delete</code> 這個操作符並用「.」接著後方加入物件名稱和屬性名稱</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">var a = &#123;</span><br><span class="line">  item: <span class="string">&#x27;項目 1&#x27;</span></span><br><span class="line">&#125;;</span><br><span class="line">a.title = <span class="string">&#x27;標題 a&#x27;</span>;</span><br><span class="line">a[<span class="string">&#x27;num&#x27;</span>] = 100;</span><br><span class="line">delete a.item;</span><br><span class="line">console.log(a);</span><br><span class="line">//Object &#123;</span><br><span class="line">  num: 100,</span><br><span class="line">  title: <span class="string">&quot;標題 a&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>也可用 <code>[ ]</code> 來刪除</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">var a = &#123;</span><br><span class="line">  item: <span class="string">&#x27;項目 1&#x27;</span>,</span><br><span class="line">  item2: <span class="string">&#x27;項目 2&#x27;</span>,</span><br><span class="line">&#125;;</span><br><span class="line">a.title = <span class="string">&#x27;標題 a&#x27;</span>;</span><br><span class="line">a[<span class="string">&#x27;num&#x27;</span>] = 100;</span><br><span class="line">delete a[<span class="string">&#x27;item2&#x27;</span>];</span><br><span class="line">console.log(a);</span><br><span class="line">//Object &#123;</span><br><span class="line">  item: <span class="string">&quot;項目 1&quot;</span>,</span><br><span class="line">  num: 100,</span><br><span class="line">  title: <span class="string">&quot;標題 a&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="new"><a href="#new" class="headerlink" title="new"></a>new</h2><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/new">MDN 文件</a>提到 <code>new 運算子</code>會產生一個新的空白物件，並且連結原本的建構物件，如下面範例的 <code>bottle function</code><br>並且把新產生物件的 <code>this</code> 綁定到這個函式之上<br>所以在這建構函式所使用的 <code>this</code> 就會綁定到新物件上面</p>
+<p><img src="https://ruienyuski.github.io/photo/hexo_img/20201031_this/this-19.png"></p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> bottle (name,color,size) &#123;</span><br><span class="line">  this.name = name;</span><br><span class="line">  this.color = color;</span><br><span class="line">  this.size = size;</span><br><span class="line">&#125;</span><br><span class="line">var drinkbottle = new bottle(<span class="string">&#x27;寶特瓶&#x27;</span>, <span class="string">&#x27;藍色&#x27;</span>,<span class="string">&#x27;500 ml&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://ruienyuski.github.io/photo/hexo_img/20201031_this/this-20.png"></p>
+<h2 id="DOM-事件處理器"><a href="#DOM-事件處理器" class="headerlink" title="DOM 事件處理器"></a>DOM 事件處理器</h2><p>這邊主要介紹操作 <code>DOM</code> 元素 <code>this</code> 會有甚麼不同，主要有兩個部分</p>
+<h3 id="把方法寫在元素上面"><a href="#把方法寫在元素上面" class="headerlink" title="把方法寫在元素上面"></a>把方法寫在元素上面</h3><p>如下圖使用 <code>console.dir</code>，顯示結果為單純的物件<br>就可了解 <code>this</code> 會直接綁定在這個元素<br><img src="https://ruienyuski.github.io/photo/hexo_img/20201031_this/this-21.png"></p>
+<h3 id="監聽器"><a href="#監聽器" class="headerlink" title="監聽器"></a>監聽器</h3><p>使用 <code>querySelectorAll</code> 把所有的 <code>BUTTON</code> 取出來，並且為所有的 <code>BUTTON</code> 補上監聽器<br>監聽的方法是 <code>click</code> ，所以點所有的 <code>BUTTON</code> 都會觸發事件，觸發的時候會執行 <code>fn()</code></p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;button&gt;1&lt;/button&gt;</span><br><span class="line">&lt;button&gt;2&lt;/button&gt;</span><br><span class="line">&lt;button&gt;3&lt;/button&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">var fn = <span class="function"><span class="title">function</span></span> () &#123;</span><br><span class="line">  console.dir(this);</span><br><span class="line">  this.style.color = <span class="string">&#x27;green&#x27;</span>;</span><br><span class="line">&#125;</span><br><span class="line">var els = document.querySelectorAll(<span class="string">&#x27;button&#x27;</span>);</span><br><span class="line"><span class="keyword">for</span> (var i=0; i&lt;els.length; i++) &#123;</span><br><span class="line">  els[i].addEventListener(<span class="string">&#x27;click&#x27;</span>, fn, <span class="literal">false</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://ruienyuski.github.io/photo/hexo_img/20201031_this/this-22.png"></p>
+<p>點 <code>BUTTON</code> 下方會出現 <code>DOM 物件</code> 點開來看就可看到相關的屬性<br><img src="https://ruienyuski.github.io/photo/hexo_img/20201031_this/this-23.png"></p>
+<p>第 3 行 <code>this</code> </p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">this.style.color = <span class="string">&#x27;green&#x27;</span>;</span><br></pre></td></tr></table></figure>
+<p>也會受到第 7 行監聽器影響</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">els[i].addEventListener(<span class="string">&#x27;click&#x27;</span>, fn, <span class="literal">false</span>);</span><br></pre></td></tr></table></figure>
+<p>讓這個 <code>this</code> 指向我們所點擊的物件<br>這也有助於開發上可正確取得我們所點擊的物件</p>
+
     </div>
 
     
@@ -309,21 +319,17 @@
     <footer class="post-footer">
           <div class="post-tags">
               <a href="/blog/tags/JavaScript/" rel="tag"># JavaScript</a>
-              <a href="/blog/tags/HTML/" rel="tag"># HTML</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/blog/2020/09/21/null-string-empty/" rel="prev" title="「null」與「空字串」的差別">
-                  <i class="fa fa-chevron-left"></i> 「null」與「空字串」的差別
+                <a href="/blog/2020/10/31/test3/" rel="prev" title="this 調用方式 (2)">
+                  <i class="fa fa-chevron-left"></i> this 調用方式 (2)
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/blog/2020/10/12/for-loop/" rel="next" title="for 迴圈">
-                  for 迴圈 <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
     </footer>

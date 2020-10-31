@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.1.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/blog/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/blog/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/blog/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/blog/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/blog/css/main.css">
+
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"ruienyuski.github.io","root":"/blog/","scheme":"Pisces","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜尋...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}};
+  </script>
+
+  <meta name="description" content="this 調用方式：「bind、apply、call 方法」內容">
+<meta property="og:type" content="article">
+<meta property="og:title" content="this 調用方式 (2)">
+<meta property="og:url" content="https://ruienyuski.github.io/blog/2020/10/31/test3/index.html">
+<meta property="og:site_name" content="前端文章筆記">
+<meta property="og:description" content="this 調用方式：「bind、apply、call 方法」內容">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://ruienyuski.github.io/photo/hexo_img/20201031_this/this-10.png">
+<meta property="og:image" content="https://ruienyuski.github.io/photo/hexo_img/20201031_this/this-11.png">
+<meta property="og:image" content="https://ruienyuski.github.io/photo/hexo_img/20201031_this/this-12.png">
+<meta property="og:image" content="https://ruienyuski.github.io/photo/hexo_img/20201031_this/this-13.png">
+<meta property="og:image" content="https://ruienyuski.github.io/photo/hexo_img/20201031_this/this-14.png">
+<meta property="og:image" content="https://ruienyuski.github.io/photo/hexo_img/20201031_this/this-15.png">
+<meta property="og:image" content="https://ruienyuski.github.io/photo/hexo_img/20201031_this/this-16.png">
+<meta property="og:image" content="https://ruienyuski.github.io/photo/hexo_img/20201031_this/this-17.png">
+<meta property="og:image" content="https://ruienyuski.github.io/photo/hexo_img/20201031_this/this-18.png">
+<meta property="article:published_time" content="2020-10-31T09:07:21.000Z">
+<meta property="article:modified_time" content="2020-10-31T10:53:30.099Z">
+<meta property="article:author" content="yuski">
+<meta property="article:tag" content="JavaScript">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://ruienyuski.github.io/photo/hexo_img/20201031_this/this-10.png">
+
+
+<link rel="canonical" href="https://ruienyuski.github.io/blog/2020/10/31/test3/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-TW'
+  };
+</script>
+
+  <title>this 調用方式 (2) | 前端文章筆記</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切換導航欄">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/blog/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">前端文章筆記</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">記下內容的雜文區</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/blog/" rel="section"><i class="fa fa-home fa-fw"></i>首頁</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/blog/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>標籤</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/blog/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分類</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目錄
+        </li>
+        <li class="sidebar-nav-overview">
+          本站概要
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <section class="post-toc-wrap sidebar-panel">
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Call"><span class="nav-number">1.</span> <span class="nav-text">Call</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#apply"><span class="nav-number">2.</span> <span class="nav-text">apply</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#bind"><span class="nav-number">3.</span> <span class="nav-text">bind</span></a></li></ol></div>
+      </section>
+      <!--/noindex-->
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">yuski</p>
+  <div class="site-description" itemprop="description">紀錄前端相關內容</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/blog/archives">
+          <span class="site-state-item-count">25</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/blog/categories/">
+          
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">分類</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/blog/tags/">
+          
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">標籤</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </section>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+      
+
+      
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://ruienyuski.github.io/blog/2020/10/31/test3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
+      <meta itemprop="name" content="yuski">
+      <meta itemprop="description" content="紀錄前端相關內容">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="前端文章筆記">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          this 調用方式 (2)
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">發表於</span>
+      
+
+      <time title="創建時間：2020-10-31 17:07:21 / 修改時間：18:53:30" itemprop="dateCreated datePublished" datetime="2020-10-31T17:07:21+08:00">2020-10-31</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分類於</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/blog/categories/JavaScript/" itemprop="url" rel="index"><span itemprop="name">JavaScript</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p><code>this</code> 調用方式：<br>「<code>bind</code>、<code>apply</code>、<code>call</code> 方法」內容</p>
+<a id="more"></a>
+<p>現在先定義另外一個函式，裡面帶兩個參數，並使用 <code>console</code> 來顯示 <code>this</code><br>以及「參數 1 」、「參數 2」</p>
+<p>「<code>bind</code>、<code>apply</code>、<code>call</code>」這三個方法觀念相近，只是呼叫方式會有點不同<br>在此會先介紹這三個方法的呼叫方式，以及他跟 <code>this</code> 的關係<br>這三個都會影響函式的呼叫方式，只不過在運作方面會有些許的不同</p>
+<p>首先執行函式會如下圖 <code>count ()</code> 接下來帶「參數 1 」、「參數 2」<br>接下來就可執行這段函式，這種方式是屬於 <code>simple call</code><br>因此 <code>this</code> 會調用全域的物件，因此 <code>this</code> 是全域的 <code>window</code><br>接著後面也帶「參數 1 」、「參數 2」</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var num = 10;</span><br><span class="line"><span class="keyword">function</span> count(a, b) &#123;</span><br><span class="line">  console.log(this);</span><br><span class="line">  console.log(a,b)</span><br><span class="line">&#125;</span><br><span class="line">count(10, 20);</span><br></pre></td></tr></table></figure>
+<p><img src="https://ruienyuski.github.io/photo/hexo_img/20201031_this/this-10.png"></p>
+<h2 id="Call"><a href="#Call" class="headerlink" title="Call"></a>Call</h2><p>接著改用 <code>call</code> 的方式來執行這段函式<br>使用 <code>count.call</code> 接著第一個帶入的是 <code>this</code> 的物件<br>把 <code>item</code> 給帶進去，接著帶入 10 和 20<br>可參考 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/Function/call">MDN 文件</a></p>
+<p>現在是使用 <code>call</code> 方式執行時，第一個參數是 <code>this</code> ，後面的參數就會以函式本身的參數依序帶入，所以第 2 行的 <code>item</code> 會替代掉原本這個函式的 <code>this</code></p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var num = 10</span><br><span class="line">var item = &#123;</span><br><span class="line">  num: 100</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">function</span> count(a, b) &#123;</span><br><span class="line">  console.log(this,a,b)</span><br><span class="line">&#125;</span><br><span class="line">count.call(item,10, 20);</span><br></pre></td></tr></table></figure>
+<p>可看到下圖目前執行的結果<br><img src="https://ruienyuski.github.io/photo/hexo_img/20201031_this/this-11.png"></p>
+<p>原本全域的 <code>window</code> 就會被替換成 <code>item</code> 這個物件，因此 <code>num</code> 就是 100<br>後面帶上 10 跟 20 的數字</p>
+<p>當我們在使用 <code>call</code> 要注意，他是立刻執行，跟我們一般呼叫函式是非常接近<br>只不過他可透過這種方式將 <code>this</code> 給替換掉</p>
+<h2 id="apply"><a href="#apply" class="headerlink" title="apply"></a>apply</h2><p><code>apply</code> 也是類似的觀念，後方也一樣可帶入 <code>this</code><br>在此與 <code>call</code> 就有不同點<br><code>call</code> 是將參數依序帶入，<code>apply</code> 是將參數以陣列呈現，如下圖結果<br>這兩者運用上是非常接近的，只不過在調用參數有點不同</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var num = 10</span><br><span class="line">var item = &#123;</span><br><span class="line">  num: 100</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">function</span> count(a, b) &#123;</span><br><span class="line">  console.log(this,a,b)</span><br><span class="line">&#125;</span><br><span class="line">count.apply(item,[10, 20]);</span><br></pre></td></tr></table></figure>
+<p><img src="https://ruienyuski.github.io/photo/hexo_img/20201031_this/this-12.png"></p>
+<h2 id="bind"><a href="#bind" class="headerlink" title="bind"></a>bind</h2><p><code>call</code> 在調用時，會立刻執行，但是 <code>bind</code> 是不會立刻執行這段函式<br>因此在用 <code>bind</code> 時候可先宣告一個變數，並且使用 <code>bind</code> 的方法<br>注意這段 <code>bind</code> (下圖圈選處) 是不會立刻執行<br><img src="https://ruienyuski.github.io/photo/hexo_img/20201031_this/this-13.png"></p>
+<p>把參數傳入的方式與 <code>call</code> 是一樣的<br>在此把 <code>item</code> 與其他內容傳入<br><img src="https://ruienyuski.github.io/photo/hexo_img/20201031_this/this-14.png"></p>
+<p>我們在去調用他的時候，他才會執行，使用 <code>temp()</code><br>接著他就會立刻去執行這段函式</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">var num = 10</span><br><span class="line">var item = &#123;</span><br><span class="line">  num: 100</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">function</span> count(a, b) &#123;</span><br><span class="line">  console.log(this,a,b)</span><br><span class="line">&#125;</span><br><span class="line">var temp = count.bind(item,10, 20);</span><br><span class="line">temp();</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://ruienyuski.github.io/photo/hexo_img/20201031_this/this-15.png"></p>
+<p>下圖這段程式在調用時，他就會自動把 <code>this</code> 給替換掉，並且把「10」「20」也一起傳進去</p>
+<p><img src="https://ruienyuski.github.io/photo/hexo_img/20201031_this/this-16.png"></p>
+<p>在執行 <code>temp()</code> 時候，這個參數就不用另外帶入，如果在這個階段想要另外帶入參數是否可行，如下圖，把參數另外帶進去是不會有任何變化的</p>
+<p><img src="https://ruienyuski.github.io/photo/hexo_img/20201031_this/this-17.png"></p>
+<p>在使用 <code>bind</code> 時候就會強制把參數寫進去<br>在寫入參數時候也可以使用部分寫入的方式，也就是 <code>bind</code> 的地方<br>第一個參數是寫「10」，但第二個參數先不要帶入</p>
+<p>結果如下，第一個參數是「10」，第二個是 <code>temp()</code> 執行的第一個參數<br>也就是他一樣會依序執行</p>
+<p><img src="https://ruienyuski.github.io/photo/hexo_img/20201031_this/this-18.png"></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/blog/tags/JavaScript/" rel="tag"># JavaScript</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/blog/2020/10/31/this2/" rel="prev" title="this 調用方式 (1)">
+                  <i class="fa fa-chevron-left"></i> this 調用方式 (1)
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/blog/2020/10/31/test4/" rel="next" title="this 調用方式 (3)">
+                  this 調用方式 (3) <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+  
+  
+  
+
+
+
+      
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      
+
+      
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">yuski</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 強力驅動
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.0/lib/anime.min.js"></script>
+<script src="/blog/js/utils.js"></script><script src="/blog/js/motion.js"></script><script src="/blog/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
