@@ -35,7 +35,7 @@
 <meta property="og:image" content="https://ruienyuski.github.io/photo/hexo_img/20201031_this/this-8.png">
 <meta property="og:image" content="https://ruienyuski.github.io/photo/hexo_img/20201031_this/this-9.png">
 <meta property="article:published_time" content="2020-10-31T09:03:04.000Z">
-<meta property="article:modified_time" content="2020-10-31T10:56:53.136Z">
+<meta property="article:modified_time" content="2020-10-31T13:04:53.635Z">
 <meta property="article:author" content="yuski">
 <meta property="article:tag" content="JavaScript">
 <meta name="twitter:card" content="summary">
@@ -178,7 +178,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%9C%E7%82%BA%E7%89%A9%E4%BB%B6%E6%96%B9%E6%B3%95-%E6%9C%80%E5%B8%B8%E9%81%8B%E7%94%A8-this-%E7%9A%84%E6%96%B9%E6%B3%95"><span class="nav-number">1.</span> <span class="nav-text">作為物件方法 (最常運用 this 的方法)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B0%A1%E6%98%93%E5%91%BC%E5%8F%AB"><span class="nav-number">1.1.</span> <span class="nav-text">簡易呼叫</span></a></li></ol></li></ol></div>
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%9C%E7%82%BA%E7%89%A9%E4%BB%B6%E6%96%B9%E6%B3%95-%E6%9C%80%E5%B8%B8%E9%81%8B%E7%94%A8-this-%E7%9A%84%E6%96%B9%E6%B3%95"><span class="nav-number">1.</span> <span class="nav-text">作為物件方法 (最常運用 this 的方法)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B0%A1%E6%98%93%E5%91%BC%E5%8F%AB"><span class="nav-number">2.</span> <span class="nav-text">簡易呼叫</span></a></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -191,7 +191,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/blog/archives">
-          <span class="site-state-item-count">25</span>
+          <span class="site-state-item-count">26</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
@@ -268,7 +268,7 @@
       <span class="post-meta-item-text">發表於</span>
       
 
-      <time title="創建時間：2020-10-31 17:03:04 / 修改時間：18:56:53" itemprop="dateCreated datePublished" datetime="2020-10-31T17:03:04+08:00">2020-10-31</time>
+      <time title="創建時間：2020-10-31 17:03:04 / 修改時間：21:04:53" itemprop="dateCreated datePublished" datetime="2020-10-31T17:03:04+08:00">2020-10-31</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -302,7 +302,7 @@
 <p>假設在一個物件下去呼叫一個函式，那這個 <code>this</code> 的指向就是前面的物件，只要掌握這個觀念，就可運用最常見的 <code>this</code> 調用方式，如下圖<br><img src="https://ruienyuski.github.io/photo/hexo_img/20201031_this/this-5.png"><br>這邊也提供範例參考<br>要注意的是不管是這個函式是如何定義的，只要了解是在哪個物件下來呼叫這個 <code>this</code></p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">var item = <span class="string">&#x27;茶壺&#x27;</span>;</span><br><span class="line">var data = &#123;</span><br><span class="line">  item:<span class="string">&#x27;杯子&#x27;</span>,</span><br><span class="line">  num: count,</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">count</span></span>() &#123;</span><br><span class="line">  console.log(this.item); // 杯子</span><br><span class="line">&#125;</span><br><span class="line">data.num();</span><br></pre></td></tr></table></figure>
 <p><img src="https://ruienyuski.github.io/photo/hexo_img/20201031_this/this-6.png"></p>
-<h3 id="簡易呼叫"><a href="#簡易呼叫" class="headerlink" title="簡易呼叫"></a>簡易呼叫</h3><p>下方的範例為「簡易呼叫」(<code>simple call</code>)<br><code>simple call</code> 的 <code>this</code> 都指向 <code>window</code></p>
+<h2 id="簡易呼叫"><a href="#簡易呼叫" class="headerlink" title="簡易呼叫"></a>簡易呼叫</h2><p>下方的範例為「簡易呼叫」(<code>simple call</code>)<br><code>simple call</code> 的 <code>this</code> 都指向 <code>window</code></p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var num = 10;</span><br><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">count</span></span>() &#123;</span><br><span class="line">  console.log(this, this.num); </span><br><span class="line">&#125;</span><br><span class="line">count();</span><br></pre></td></tr></table></figure>
 <p><img src="https://ruienyuski.github.io/photo/hexo_img/20201031_this/this-7.png"></p>
 <p>這邊要注意一件事情，我們所理解的全域是掛在 <code>window</code> 物件下，所以很多人以為執行 <code>simple call</code> 是如下圖圈選的概念 <code>window.count</code><br><img src="https://ruienyuski.github.io/photo/hexo_img/20201031_this/this-8.png"><br>所以他會調用全域的 <code>window</code><br>但是 <code>simple call</code> 的概念並非是在 <code>window</code> 底下執行這個函式，並不是執行函式的概念<br>像是下圖 11 行的立即函式裡面 <code>test()</code> 並不是屬於全域下的變數<br>所以 <code>window.test()</code> 並沒有辦法直接去執行</p>
