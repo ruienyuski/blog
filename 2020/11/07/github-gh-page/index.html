@@ -22,22 +22,33 @@
     var CONFIG = {"hostname":"ruienyuski.github.io","root":"/blog/","scheme":"Pisces","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜尋...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}};
   </script>
 
-  <meta name="description" content="createElement 與 innerHTML 都是插入 HTML 標籤的兩種方法這邊整理 createElement 內容">
+  <meta name="description" content="這邊整理 VueCli 編譯後的檔案上傳到 GitHub 流程">
 <meta property="og:type" content="article">
-<meta property="og:title" content="createElement">
-<meta property="og:url" content="https://ruienyuski.github.io/blog/2020/09/16/create-element/index.html">
+<meta property="og:title" content="VueCli 編譯後的網站上傳到 GitHub gh-pages 分支">
+<meta property="og:url" content="https://ruienyuski.github.io/blog/2020/11/07/github-gh-page/index.html">
 <meta property="og:site_name" content="前端文章筆記">
-<meta property="og:description" content="createElement 與 innerHTML 都是插入 HTML 標籤的兩種方法這邊整理 createElement 內容">
+<meta property="og:description" content="這邊整理 VueCli 編譯後的檔案上傳到 GitHub 流程">
 <meta property="og:locale" content="zh_TW">
-<meta property="article:published_time" content="2020-09-16T09:18:31.000Z">
-<meta property="article:modified_time" content="2020-09-16T09:58:00.770Z">
+<meta property="og:image" content="https://ruienyuski.github.io/photo/hexo_img/20201107_github/vuecli-7.png">
+<meta property="og:image" content="https://ruienyuski.github.io/photo/hexo_img/20201107_github/vuecli-10.png">
+<meta property="og:image" content="https://ruienyuski.github.io/photo/hexo_img/20201107_github/vuecli-8.png">
+<meta property="og:image" content="https://ruienyuski.github.io/photo/hexo_img/20201107_github/vuecli-9.png">
+<meta property="og:image" content="https://ruienyuski.github.io/photo/hexo_img/20201107_github/vuecli-11.png">
+<meta property="og:image" content="https://ruienyuski.github.io/photo/hexo_img/20201107_github/vuecli-12.png">
+<meta property="og:image" content="https://ruienyuski.github.io/photo/hexo_img/20201107_github/vuecli-13.png">
+<meta property="og:image" content="https://ruienyuski.github.io/photo/hexo_img/20201107_github/vuecli-14.png">
+<meta property="og:image" content="https://ruienyuski.github.io/photo/hexo_img/20201107_github/vuecli-15.png">
+<meta property="og:image" content="https://ruienyuski.github.io/photo/hexo_img/20201107_github/vuecli-16.png">
+<meta property="article:published_time" content="2020-11-07T08:31:20.000Z">
+<meta property="article:modified_time" content="2020-11-07T09:18:53.439Z">
 <meta property="article:author" content="yuski">
-<meta property="article:tag" content="JavaScript">
-<meta property="article:tag" content="HTML">
+<meta property="article:tag" content="Vue">
+<meta property="article:tag" content="GitHub">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://ruienyuski.github.io/photo/hexo_img/20201107_github/vuecli-7.png">
 
 
-<link rel="canonical" href="https://ruienyuski.github.io/blog/2020/09/16/create-element/">
+<link rel="canonical" href="https://ruienyuski.github.io/blog/2020/11/07/github-gh-page/">
 
 
 <script class="page-configurations">
@@ -50,7 +61,7 @@
   };
 </script>
 
-  <title>createElement | 前端文章筆記</title>
+  <title>VueCli 編譯後的網站上傳到 GitHub gh-pages 分支 | 前端文章筆記</title>
   
 
 
@@ -173,7 +184,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#createElement-%E5%AF%AB%E6%B3%95"><span class="nav-number">1.</span> <span class="nav-text">createElement 寫法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#appendChild-%E6%94%BE-for-%E8%BF%B4%E5%9C%88%E8%A3%A1%E9%9D%A2"><span class="nav-number">2.</span> <span class="nav-text">appendChild 放 for 迴圈裡面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%B4%E5%9C%88%E5%85%A7%E5%AE%A3%E5%91%8A-createElement"><span class="nav-number">3.</span> <span class="nav-text">迴圈內宣告 createElement</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#appendChild-%E6%94%BE%E5%9C%A8%E8%BF%B4%E5%9C%88%E5%85%A7"><span class="nav-number">4.</span> <span class="nav-text">appendChild 放在迴圈內</span></a></li></ol></div>
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B7%A8%E8%AD%AF%E5%89%8D%E7%9A%84%E8%A8%AD%E5%AE%9A"><span class="nav-number">1.</span> <span class="nav-text">編譯前的設定</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%B2%E5%85%A5-dist-%E8%B3%87%E6%96%99%E5%A4%BE%E5%92%8C%E5%BB%BA%E7%AB%8B%E5%88%86%E6%94%AF"><span class="nav-number">2.</span> <span class="nav-text">進入 dist 資料夾和建立分支</span></a></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -235,7 +246,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="https://ruienyuski.github.io/blog/2020/09/16/create-element/">
+    <link itemprop="mainEntityOfPage" href="https://ruienyuski.github.io/blog/2020/11/07/github-gh-page/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/blog/images/avatar.gif">
@@ -251,7 +262,7 @@
     
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          createElement
+          VueCli 編譯後的網站上傳到 GitHub gh-pages 分支
         </h1>
 
         <div class="post-meta-container">
@@ -263,7 +274,7 @@
       <span class="post-meta-item-text">發表於</span>
       
 
-      <time title="創建時間：2020-09-16 17:18:31 / 修改時間：17:58:00" itemprop="dateCreated datePublished" datetime="2020-09-16T17:18:31+08:00">2020-09-16</time>
+      <time title="創建時間：2020-11-07 16:31:20 / 修改時間：17:18:53" itemprop="dateCreated datePublished" datetime="2020-11-07T16:31:20+08:00">2020-11-07</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -271,7 +282,7 @@
       </span>
       <span class="post-meta-item-text">分類於</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/blog/categories/JavaScript/" itemprop="url" rel="index"><span itemprop="name">JavaScript</span></a>
+          <a href="/blog/categories/GitHub/" itemprop="url" rel="index"><span itemprop="name">GitHub</span></a>
         </span>
     </span>
 
@@ -285,17 +296,22 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p><code>createElement</code> 與 <code>innerHTML</code> 都是插入 <code>HTML</code> 標籤的兩種方法<br>這邊整理 <code>createElement</code> 內容</p>
+        <p>這邊整理 <code>VueCli</code> 編譯後的檔案上傳到 <code>GitHub</code> 流程</p>
 <a id="more"></a>
-<h2 id="createElement-寫法"><a href="#createElement-寫法" class="headerlink" title="createElement 寫法"></a>createElement 寫法</h2><p>先使用 <code>createElement</code> 建立元素，以下將內容放到 <a target="_blank" rel="noopener" href="https://codepen.io/HexSchool_yuko/pen/poyZxEX">Codepen</a></p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var li = document.createElement(<span class="string">&#x27;li&#x27;</span>);</span><br><span class="line">li.textContent = <span class="string">&#x27;item 1&#x27;</span>;</span><br></pre></td></tr></table></figure>
-<p>再使用 <code>appendChild</code> 用新增子節點的方式去新增</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">document.querySelector(<span class="string">&#x27;ul&#x27;</span>).appendChild(li);</span><br></pre></td></tr></table></figure>
-<p>以上可參考 JS 第 1-3 行註解內容<br>若要大量增加，可使用 <code>for 迴圈</code>，可參考 JS 第 5-24 行內容</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">var data = [</span><br><span class="line">  &#123;</span><br><span class="line">    student: <span class="string">&#x27;joe&#x27;</span>,</span><br><span class="line">    age:10,</span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    student: <span class="string">&#x27;bill&#x27;</span>,</span><br><span class="line">    age:9,</span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    student: <span class="string">&#x27;kevin&#x27;</span>,</span><br><span class="line">    age:11,</span><br><span class="line">  &#125;,    </span><br><span class="line">];</span><br><span class="line">var len = data.length;</span><br><span class="line"><span class="keyword">for</span>(var i=0; i&lt;len; i++) &#123;</span><br><span class="line">  var li = document.createElement(<span class="string">&#x27;li&#x27;</span>);</span><br><span class="line">  li.textContent = data[i].student;</span><br><span class="line">  document.querySelector(<span class="string">&#x27;ul&#x27;</span>).appendChild(li);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="appendChild-放-for-迴圈裡面"><a href="#appendChild-放-for-迴圈裡面" class="headerlink" title="appendChild 放 for 迴圈裡面"></a>appendChild 放 for 迴圈裡面</h2><p><code>appendChild</code> 放 <code>for 迴圈</code> 裡面是每個產生一個元素，就將該元素寫入到對應位置。<br>但放外面的話，他就只會放最後一筆資料到裡頭。</p>
-<h2 id="迴圈內宣告-createElement"><a href="#迴圈內宣告-createElement" class="headerlink" title="迴圈內宣告 createElement"></a>迴圈內宣告 createElement</h2><p>迴圈內宣告 <code>createElement</code> 代表每跑一次迴圈都會宣告並產生一個新的 <code>li</code> 元素<br>把 <code>document.createElement(&quot;li&quot;)</code> 放在迴圈外<br>他會導致每次迴圈在執行，都會替換「同一個」之前宣告好的 <code>li</code> 文字內容<br>也就是每次新增都是取代前一個<br>所以要能產生多筆內容，建議把他放在迴圈內</p>
-<h2 id="appendChild-放在迴圈內"><a href="#appendChild-放在迴圈內" class="headerlink" title="appendChild 放在迴圈內"></a>appendChild 放在迴圈內</h2><p><code>appendChild</code> 它的特性是會在後面做累加動作<br>放在迴圈外，他就只會放最後一筆資料到裡頭</p>
+<h2 id="編譯前的設定"><a href="#編譯前的設定" class="headerlink" title="編譯前的設定"></a>編譯前的設定</h2><p>以 <code>VueCli 2</code> 來說需設定 <code>config/index.js</code> 裡面的 <code>build</code> 中的 <code>assetsPublicPath</code><br>改其值為 <code>/repository 名稱/</code><br><img src="https://ruienyuski.github.io/photo/hexo_img/20201107_github/vuecli-7.png"></p>
+<p>若為 <code>VueCli 3</code> ( 含 ) 以上的版本則在專案根目錄新增 <code>vue.config.js</code> 做設定<br>在 <a target="_blank" rel="noopener" href="https://cli.vuejs.org/zh/config/#publicpath">Vue 官方文件</a>有說明</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">module.exports = &#123;</span><br><span class="line">  publicPath: process.env.NODE_ENV === <span class="string">&#x27;production&#x27;</span></span><br><span class="line">    ? <span class="string">&#x27;/repository 名稱/&#x27;</span></span><br><span class="line">    : <span class="string">&#x27;/&#x27;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>如下圖<br><img src="https://ruienyuski.github.io/photo/hexo_img/20201107_github/vuecli-10.png"></p>
+<p>設定好後才執行 <code>npm run build</code> 編譯網站<br><img src="https://ruienyuski.github.io/photo/hexo_img/20201107_github/vuecli-8.png"></p>
+<p>執行後會出現 <code>dist</code> 資料夾<br><img src="https://ruienyuski.github.io/photo/hexo_img/20201107_github/vuecli-9.png"></p>
+<h2 id="進入-dist-資料夾和建立分支"><a href="#進入-dist-資料夾和建立分支" class="headerlink" title="進入 dist 資料夾和建立分支"></a>進入 dist 資料夾和建立分支</h2><p>執行 <code>cd dist</code> 進入到 <code>dist</code> 資料夾，與之前一樣建立數據庫和 <code>commit</code><br><img src="https://ruienyuski.github.io/photo/hexo_img/20201107_github/vuecli-11.png"></p>
+<p>接著設置遠端分支使用下面的指令</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push <span class="string">&#x27;遠端 repository&#x27;</span> master:gh-pages</span><br></pre></td></tr></table></figure>
+<p>如下圖<br><img src="https://ruienyuski.github.io/photo/hexo_img/20201107_github/vuecli-12.png"></p>
+<p>上傳到 <code>GitHub</code> 後再重新整理網頁，就看到已經有 <code>gh-pages</code> 分支<br><img src="https://ruienyuski.github.io/photo/hexo_img/20201107_github/vuecli-13.png"></p>
+<p>點選進去後可看到 <code>dist</code> 資料夾內的檔案，點右上角的 <code>Settings</code>，可進入設定畫面<br><img src="https://ruienyuski.github.io/photo/hexo_img/20201107_github/vuecli-14.png"></p>
+<p>網頁移到下方可看到 <code>GitHub pages</code> 內容已經幫我們設定網頁畫面預覽的 <code>Source</code> 為 <code>gh-pages</code> 分支<br><img src="https://ruienyuski.github.io/photo/hexo_img/20201107_github/vuecli-15.png"></p>
+<p>打開連結可看到網頁內容<br><img src="https://ruienyuski.github.io/photo/hexo_img/20201107_github/vuecli-16.png"></p>
 
     </div>
 
@@ -305,22 +321,19 @@
 
     <footer class="post-footer">
           <div class="post-tags">
-              <a href="/blog/tags/JavaScript/" rel="tag"># JavaScript</a>
-              <a href="/blog/tags/HTML/" rel="tag"># HTML</a>
+              <a href="/blog/tags/Vue/" rel="tag"># Vue</a>
+              <a href="/blog/tags/GitHub/" rel="tag"># GitHub</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/blog/2020/09/12/hexo-%E4%B8%8A%E5%82%B3%E5%9C%96%E7%89%87%E8%A7%A3%E6%B1%BA%E6%96%B9%E5%BC%8F/" rel="prev" title="hexo 上傳圖片解決方式">
-                  <i class="fa fa-chevron-left"></i> hexo 上傳圖片解決方式
+                <a href="/blog/2020/11/07/github-vuecli/" rel="prev" title="VueCli 上傳到 GitHub 相關流程">
+                  <i class="fa fa-chevron-left"></i> VueCli 上傳到 GitHub 相關流程
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/blog/2020/09/21/null-string-empty/" rel="next" title="「null」與「空字串」的差別">
-                  「null」與「空字串」的差別 <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
     </footer>
