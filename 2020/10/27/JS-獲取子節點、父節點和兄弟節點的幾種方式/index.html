@@ -30,7 +30,7 @@
 <meta property="og:description" content="整理取得相關節點的方式">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2020-10-27T02:16:54.000Z">
-<meta property="article:modified_time" content="2020-10-27T03:42:09.074Z">
+<meta property="article:modified_time" content="2020-11-08T08:56:13.106Z">
 <meta property="article:author" content="yuski">
 <meta property="article:tag" content="JavaScript">
 <meta property="article:tag" content="HTML">
@@ -261,10 +261,16 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">發表於</span>
-      
 
-      <time title="創建時間：2020-10-27 10:16:54 / 修改時間：11:42:09" itemprop="dateCreated datePublished" datetime="2020-10-27T10:16:54+08:00">2020-10-27</time>
+      <time title="創建時間：2020-10-27 10:16:54" itemprop="dateCreated datePublished" datetime="2020-10-27T10:16:54+08:00">2020-10-27</time>
     </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新於</span>
+        <time title="修改時間：2020-11-08 16:56:13" itemprop="dateModified" datetime="2020-11-08T16:56:13+08:00">2020-11-08</time>
+      </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
@@ -295,7 +301,7 @@
 <h3 id="Node-parentElement"><a href="#Node-parentElement" class="headerlink" title="Node.parentElement"></a>Node.parentElement</h3><p>如同 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/Node/parentElement">MDN 文件</a>提到：<br>「回傳當前節點的父元素節點，如果該元素沒有父節點，或者父節點不是一個 <code>DOM</code> 元素，則回傳 <code>null</code>。」</p>
 <h3 id="HTMLElement-offsetParent-獲取所有父節點"><a href="#HTMLElement-offsetParent-獲取所有父節點" class="headerlink" title="HTMLElement.offsetParent 獲取所有父節點"></a>HTMLElement.offsetParent 獲取所有父節點</h3><p>直接能夠獲取到所有父親節點， 這個對應的值是 <code>body</code> 下的所有節點信息。<br>如同 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/HTMLElement/offsetParent">MDN 文件</a>提到：<br>「回傳一個指向最近的 (指包含層級上的最近) 包含該元素的定位元素或者最近的 <code>table</code>,<code>td</code>,<code>th</code>,<code>body</code> 元素。當元素的 <code>style.display</code> 設置為 <code>none</code> 時，<code>offsetParent</code> 回傳 <code>null</code>。<br><code>offsetParent</code> 很有用，因為 <code>offsetTop</code> 和<code>offsetLeft</code> 都是相對於其內邊距邊界的」。</p>
 <h2 id="獲取兄弟節點的方式"><a href="#獲取兄弟節點的方式" class="headerlink" title="獲取兄弟節點的方式"></a>獲取兄弟節點的方式</h2><h3 id="Node-previousSibling"><a href="#Node-previousSibling" class="headerlink" title="Node.previousSibling"></a>Node.previousSibling</h3><p>透過 <code>Node.previousSibling</code> 可以取得同層之間的「前一個」節點，如果 <code>node</code> 已經是第一個節點，則回傳 <code>null</code>。<br>類似方法還有 <code>previousElementSibling</code> 他們的區別是 <code>Node.previousSibling</code> 會匹配字符，包括換行和空格，而不是節點。<code>previousElementSibling</code> 則直接匹配節點。</p>
-<h3 id="Node-nextSibling"><a href="#Node-nextSibling" class="headerlink" title="Node.nextSibling"></a>Node.nextSibling</h3><p>與 <code>Node.previousSibling</code> 類似，透過 <code>Node.previousSibling</code> 可以取得同層之間的「下一個」節點，如果 node 已經是最後一個節點，則回傳 <code>null</code>。<br>同 <code>Node.previousSibling</code> 和 <code>previousElementSibling</code>，<code>Node.nextSibling</code> 和<code>nextElementSibling</code> 也是類似的。<br>如同 <a target="_blank" rel="noopener" href="https://www.w3schools.com/jsref/prop_node_nextsibling.asp">w3schools</a> 提到：</p>
+<h3 id="Node-nextSibling"><a href="#Node-nextSibling" class="headerlink" title="Node.nextSibling"></a>Node.nextSibling</h3><p>與 <code>Node.previousSibling</code> 類似，透過 <code>Node.nextSibling</code> 可以取得同層之間的「下一個」節點，如果 <code>node</code> 已經是最後一個節點，則回傳 <code>null</code>。<br>同 <code>Node.previousSibling</code> 和 <code>previousElementSibling</code>，<code>Node.nextSibling</code> 和<code>nextElementSibling</code> 也是類似的。<br>如同 <a target="_blank" rel="noopener" href="https://www.w3schools.com/jsref/prop_node_nextsibling.asp">w3schools</a> 提到：</p>
 <blockquote>
 <p>The difference between this property and nextElementSibling, is that nextSibling returns the next sibling node as an element node, a text node or a comment node, while nextElementSibling returns the next sibling node as an element node (ignores text and comment nodes).</p>
 </blockquote>
