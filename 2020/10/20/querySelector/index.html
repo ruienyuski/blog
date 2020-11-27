@@ -30,7 +30,7 @@
 <meta property="og:description" content="querySelector 和 querySelectorAll 選取元素用法介紹">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2020-10-20T02:12:59.000Z">
-<meta property="article:modified_time" content="2020-10-20T02:44:36.256Z">
+<meta property="article:modified_time" content="2020-11-27T13:33:18.570Z">
 <meta property="article:author" content="yuski">
 <meta property="article:tag" content="JavaScript">
 <meta property="article:tag" content="HTML">
@@ -289,10 +289,16 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">發表於</span>
-      
 
-      <time title="創建時間：2020-10-20 10:12:59 / 修改時間：10:44:36" itemprop="dateCreated datePublished" datetime="2020-10-20T10:12:59+08:00">2020-10-20</time>
+      <time title="創建時間：2020-10-20 10:12:59" itemprop="dateCreated datePublished" datetime="2020-10-20T10:12:59+08:00">2020-10-20</time>
     </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新於</span>
+        <time title="修改時間：2020-11-27 21:33:18" itemprop="dateModified" datetime="2020-11-27T21:33:18+08:00">2020-11-27</time>
+      </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
@@ -320,7 +326,7 @@
 <p>括號內接 <code>class</code> 或是 <code>id</code><br><code>class</code> 為 <code>.</code><br><code>id</code> 為 <code>#</code><br>與 <code>CSS</code> 寫法一樣</p>
 <h2 id="querySelectorAll-可重複選取多個元素"><a href="#querySelectorAll-可重複選取多個元素" class="headerlink" title="querySelectorAll - 可重複選取多個元素"></a>querySelectorAll - 可重複選取多個元素</h2><p>下方的 <code>.box</code> 若用 <code>querySelector</code> 則只會選到第一個 <code>.box</code></p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=<span class="string">&quot;box&quot;</span>&gt;&lt;/div&gt;</span><br><span class="line">&lt;div class=<span class="string">&quot;box&quot;</span>&gt;&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">var el = document.querySelector(<span class="string">&#x27;.box&#x27;</span>);</span><br></pre></td></tr></table></figure>
-<p>所以需改用 <code>querySelectorAll</code> 才能選到所以 <code>.box</code> 所以 <code>.box</code> 內容</p>
+<p>所以需改用 <code>querySelectorAll</code> 才能選到所有的 <code>.box</code> </p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=<span class="string">&quot;box&quot;</span>&gt;&lt;/div&gt;</span><br><span class="line">&lt;div class=<span class="string">&quot;box&quot;</span>&gt;&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">var el = document.querySelectorAll(<span class="string">&#x27;.box&#x27;</span>);</span><br></pre></td></tr></table></figure>
 <p>若要讓 <code>.box</code> 加上內容可跑 <code>for 迴圈</code></p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var el = document.querySelectorAll(<span class="string">&#x27;.box&#x27;</span>);</span><br><span class="line"><span class="keyword">for</span>(var i = 0; i &lt; el.length; i++) &#123;</span><br><span class="line">  el[i].textContent = <span class="string">&#x27;項目&#x27;</span>+ i;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
